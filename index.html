@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Done-For-You Website for Health &amp; Nutrition Practitioners | Whitney Bateson Digital</title>
+  <meta name="description" content="Your complete practice website — written, designed, and launched for you. No blank pages. No page builders. Live in about 3 weeks.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — Navy + Warm Cream palette to match
+       whitneybateson.com brand family
+    ============================================================ */
+    :root {
+      --navy:          #1d3557;
+      --navy-dark:     #122338;
+      --navy-mid:      #264a72;
+      --cream:         #fdf9f3;
+      --cream-dark:    #f5f0e8;
+      --cream-mid:     #ece6dc;
+      --accent:        #c8956c;   /* warm terracotta/gold */
+      --accent-dark:   #b07a54;
+      --accent-light:  #f0ddd0;
+      --white:         #ffffff;
+      --text:          #2c2c2c;
+      --text-mid:      #545454;
+      --text-light:    #7a7a7a;
+      --border:        #e0d9cf;
+      --border-light:  #ede8e0;
+      --shadow-sm:     0 1px 3px rgba(29,53,87,.08), 0 1px 2px rgba(29,53,87,.05);
+      --shadow-md:     0 4px 16px rgba(29,53,87,.10), 0 1px 4px rgba(29,53,87,.06);
+      --shadow-lg:     0 12px 40px rgba(29,53,87,.14), 0 4px 12px rgba(29,53,87,.08);
+      --radius-sm:     8px;
+      --radius-md:     14px;
+      --radius-lg:     20px;
+      --radius-pill:   100px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      line-height: 1.2;
+      color: var(--navy);
+    }
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .section-headline {
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 640px;
+      line-height: 1.75;
+    }
+
+    /* ============================================================
+       LAYOUT UTILITIES
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section         { padding: 84px 0; }
+    .section--cream  { background: var(--cream); }
+    .section--navy   { background: var(--navy); color: var(--white); }
+    .section--navy h1,
+    .section--navy h2,
+    .section--navy h3,
+    .section--navy h4 { color: var(--white); }
+    .text-center { text-align: center; }
+    .section-header  { margin-bottom: 3rem; }
+
+    /* ============================================================
+       ANNOUNCEMENT BAR / TICKER
+    ============================================================ */
+    .ticker-bar {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 100;
+    }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 38s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+      white-space: nowrap;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 0 1.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .ticker-dot { color: var(--accent); }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    .nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 90;
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 2rem;
+    }
+    .nav__logo {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav__links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      transition: color .2s;
+    }
+    .nav__links a:hover { color: var(--navy); }
+    .nav__cta { flex-shrink: 0; }
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav__hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      border: 2px solid transparent;
+      text-decoration: none;
+      transition: all .22s ease;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .btn--primary {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .btn--primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(200,149,108,.35);
+    }
+    .btn--accent {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+    .btn--accent:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(200,149,108,.35);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+    .btn--outline:hover {
+      background: var(--navy);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+    .btn--lg  { font-size: 1.05rem; padding: 16px 36px; }
+    .btn--sm  { font-size: .85rem;  padding: 10px 20px; }
+    .btn--full { width: 100%; text-align: center; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      background: var(--cream);
+      padding: 96px 0 88px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -100px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      opacity: .4;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -80px;
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      background: var(--cream-mid);
+      opacity: .6;
+      pointer-events: none;
+    }
+    .hero__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+    }
+    .hero__eyebrow {
+      font-size: .79rem;
+      font-weight: 600;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+    .hero__eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 2px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .hero__headline {
+      font-size: clamp(2.15rem, 5.5vw, 3.55rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+    .hero__headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero__sub {
+      font-size: 1.15rem;
+      color: var(--text-mid);
+      line-height: 1.72;
+      margin-bottom: 2.25rem;
+      max-width: 620px;
+    }
+    .hero__cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .75rem;
+    }
+    .hero__secondary-text {
+      font-size: .875rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* ============================================================
+       PAIN / RECOGNITION
+    ============================================================ */
+    .pain__inner { max-width: 760px; }
+    .pain__text p {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      line-height: 1.82;
+      margin-bottom: 1.25rem;
+    }
+    .pain__text p:last-child { margin-bottom: 0; }
+
+    /* ============================================================
+       OFFER INTRO
+    ============================================================ */
+    .offer-intro__inner { max-width: 760px; }
+    .offer-intro__text p {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      line-height: 1.82;
+      margin-bottom: 1.25rem;
+    }
+    .callout-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--navy);
+      color: var(--white);
+      font-size: .875rem;
+      font-weight: 600;
+      padding: 9px 22px;
+      border-radius: var(--radius-pill);
+      margin-top: .5rem;
+    }
+    .callout-pill::before { content: '✦'; color: var(--accent); }
+
+    /* ============================================================
+       PROCESS
+    ============================================================ */
+    .process__steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.25rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+    /* connector line desktop only */
+    .process__steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(16.6% + 14px);
+      right: calc(16.6% + 14px);
+      height: 2px;
+      background: linear-gradient(to right, var(--border) 0%, var(--border) 100%);
+      z-index: 0;
+    }
+    .process__step { position: relative; z-index: 1; }
+    .step__number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .step__week {
+      font-size: .73rem;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .35rem;
+    }
+    .step__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .75rem;
+      line-height: 1.3;
+    }
+    .step__desc {
+      font-size: .95rem;
+      color: var(--text-mid);
+      line-height: 1.72;
+      margin-bottom: .75rem;
+    }
+    .step__desc:last-child { margin-bottom: 0; }
+
+    /* ============================================================
+       PRICING
+    ============================================================ */
+    .pricing__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    .pricing-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+    }
+    .pricing-card--featured {
+      border-color: var(--navy);
+      box-shadow: var(--shadow-lg);
+    }
+    .pricing-card__badge {
+      background: var(--accent);
+      color: var(--white);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 6px 0;
+    }
+    .pricing-card__header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 28px 32px 30px;
+    }
+    .pricing-card--featured .pricing-card__header { background: var(--navy-dark); }
+    .pricing-card__tier {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .73rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .35rem;
+    }
+    .pricing-card__name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .pricing-card__price {
+      display: flex;
+      align-items: baseline;
+      gap: .25rem;
+      margin-top: 1.15rem;
+    }
+    .price__currency { font-size: 1.4rem; font-weight: 600; color: rgba(255,255,255,.8); }
+    .price__amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .pricing-card__subline {
+      font-size: .875rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.55;
+      margin-top: .75rem;
+    }
+    .pricing-card__body {
+      padding: 28px 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .pricing-card__features { margin-bottom: 1.75rem; }
+    .pricing-card__features li {
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+      font-size: .92rem;
+      color: var(--text-mid);
+      padding: .45rem 0;
+      border-bottom: 1px solid var(--border-light);
+      line-height: 1.45;
+    }
+    .pricing-card__features li:last-child { border-bottom: none; }
+    .check { color: var(--accent); font-size: .85rem; flex-shrink: 0; margin-top: 2px; }
+    .pricing-card__maintenance {
+      background: var(--cream);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      margin-bottom: 1.5rem;
+    }
+    .maint-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: .25rem;
+    }
+    .maint-price { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: .2rem; }
+    .maint-desc  { font-size: .82rem; color: var(--text-light); line-height: 1.5; }
+    .pricing-card__actions {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .secondary-link {
+      font-size: .9rem;
+      color: var(--navy);
+      text-align: center;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .3rem;
+      transition: color .2s;
+    }
+    .secondary-link:hover { color: var(--accent); }
+    .pricing__below {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .pricing__below p {
+      color: var(--text-mid);
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    /* ============================================================
+       COMPARISON TABLE
+    ============================================================ */
+    .comparison__table-wrap {
+      overflow-x: auto;
+      margin-top: 3rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      min-width: 580px;
+    }
+    .comparison-table thead th {
+      padding: 18px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+      color: var(--text-light);
+    }
+    .comparison-table thead th.col-us {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .comparison-table tbody tr {
+      border-bottom: 1px solid var(--border-light);
+      transition: background .15s;
+    }
+    .comparison-table tbody tr:last-child { border-bottom: none; }
+    .comparison-table tbody tr:hover { background: var(--cream); }
+    .comparison-table td {
+      padding: 15px 24px;
+      font-size: .93rem;
+      color: var(--text-mid);
+      vertical-align: middle;
+    }
+    .comparison-table td:first-child { font-weight: 600; color: var(--text); }
+    .comparison-table td.col-us { background: rgba(29,53,87,.04); }
+    .ct-yes { color: var(--accent); font-weight: 700; }
+    .ct-no  { color: #bbb; }
+    .ct-strong { font-weight: 600; color: var(--navy); }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px 44px;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      max-width: 760px;
+      margin: 3rem auto 0;
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: 'Playfair Display', serif;
+      font-size: 5.5rem;
+      color: var(--accent-light);
+      position: absolute;
+      top: 8px; left: 28px;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .testimonial-card__quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      line-height: 1.72;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
+    }
+    .testimonial-card__author {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .author-dash {
+      width: 28px;
+      height: 2px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .author-info { font-size: .9rem; font-weight: 600; color: var(--navy); }
+
+    /* ============================================================
+       ADD-ONS
+    ============================================================ */
+    .addons__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .addon-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 28px 26px;
+    }
+    .addon-card__icon { font-size: 1.55rem; margin-bottom: .75rem; }
+    .addon-card__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .6rem;
+    }
+    .addon-card__desc {
+      font-size: .925rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .addon-card__price {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ============================================================
+       FAQ
+    ============================================================ */
+    .faq__list {
+      margin-top: 3rem;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .faq__item { border-bottom: 1px solid var(--border); }
+    .faq__item:first-child { border-top: 1px solid var(--border); }
+    .faq__question {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 22px 0;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: none;
+      border: none;
+      text-align: left;
+      width: 100%;
+      transition: color .2s;
+    }
+    .faq__question:hover { color: var(--accent); }
+    .faq__icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      line-height: 1;
+      color: var(--accent);
+      transition: all .22s;
+      background: var(--white);
+      margin-top: 1px;
+    }
+    .faq__item.open .faq__icon {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+      transform: rotate(45deg);
+    }
+    .faq__answer { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq__answer-inner {
+      padding: 0 0 22px;
+      font-size: .975rem;
+      color: var(--text-mid);
+      line-height: 1.82;
+    }
+    .faq__item.open .faq__answer { max-height: 400px; }
+
+    /* ============================================================
+       CLOSING CTA
+    ============================================================ */
+    .closing {
+      background: var(--navy);
+      padding: 108px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .closing::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 560px; height: 560px;
+      border-radius: 50%;
+      background: rgba(200,149,108,.1);
+      pointer-events: none;
+    }
+    .closing__inner { position: relative; z-index: 1; }
+    .closing .eyebrow { color: var(--accent); }
+    .closing__headline {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .closing__body {
+      font-size: 1.075rem;
+      color: rgba(255,255,255,.78);
+      line-height: 1.75;
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+    }
+    .closing__cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .closing__secondary { font-size: .9rem; color: rgba(255,255,255,.6); }
+    .closing__secondary a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,.52);
+      padding: 28px 0;
+    }
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: .84rem;
+    }
+    .footer__logo {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.82);
+    }
+    .footer__links { display: flex; gap: 1.5rem; }
+    .footer__links a { color: inherit; text-decoration: none; transition: color .2s; }
+    .footer__links a:hover { color: var(--white); }
+
+    /* ============================================================
+       MOBILE OVERLAY NAV
+    ============================================================ */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--white);
+      z-index: 200;
+      flex-direction: column;
+      padding: 24px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+    .mobile-nav__close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--navy);
+      padding: 4px;
+      line-height: 1;
+    }
+    .mobile-nav__links { display: flex; flex-direction: column; }
+    .mobile-nav__links a {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--navy);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+      display: block;
+    }
+    .mobile-nav__cta { margin-top: 2rem; }
+    .mobile-nav__cta .btn { width: 100%; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .process__steps {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .process__steps::before { display: none; }
+      .pricing__grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .addons__grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    @media (max-width: 768px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__hamburger { display: flex; }
+      .section { padding: 60px 0; }
+      .hero { padding: 64px 0 56px; }
+      .testimonial-card { padding: 28px 26px; }
+      .footer__inner { flex-direction: column; text-align: center; }
+      .comparison-table thead th,
+      .comparison-table td { padding: 12px 16px; font-size: .87rem; }
+    }
+    @media (max-width: 560px) {
+      .container { padding: 0 18px; }
+      .hero__cta-group { align-items: stretch; }
+      .hero__cta-group .btn { text-align: center; }
+      .addons__grid { grid-template-columns: 1fr; max-width: 100%; }
+      .pricing-card__header, .pricing-card__body { padding: 22px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====================================================
+     ANNOUNCEMENT BAR
+==================================================== -->
+<div class="ticker-bar" aria-label="Announcements">
+  <div class="ticker-track" aria-hidden="true">
+    <!-- First set -->
+    <span class="ticker-item">New Service for Health &amp; Nutrition Practitioners <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Limited Spots Available <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Live in ~3 Weeks <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Copy Written For You <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">No Tech Skills Required <span class="ticker-dot">✦</span></span>
+    <!-- Duplicate for seamless loop -->
+    <span class="ticker-item">New Service for Health &amp; Nutrition Practitioners <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Limited Spots Available <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Live in ~3 Weeks <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Copy Written For You <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">No Tech Skills Required <span class="ticker-dot">✦</span></span>
+  </div>
+</div>
+
+<!-- ====================================================
+     NAV
+==================================================== -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="#top" class="nav__logo">Whitney Bateson</a>
+      <div class="nav__links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#whats-included">What's Included</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav__cta">
+        <a href="[BOOKING LINK]" class="btn btn--primary btn--sm">Book a Free Call</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-modal="true">
+  <div class="mobile-nav__header">
+    <span class="nav__logo">Whitney Bateson</span>
+    <button class="mobile-nav__close" id="mobileClose" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="mobile-nav__links">
+    <a href="#how-it-works" class="mobile-link">How It Works</a>
+    <a href="#whats-included" class="mobile-link">What's Included</a>
+    <a href="#pricing" class="mobile-link">Pricing</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
+  </nav>
+  <div class="mobile-nav__cta">
+    <a href="[BOOKING LINK]" class="btn btn--primary">Book a Free Call</a>
+  </div>
+</div>
+
+<!-- ====================================================
+     HERO
+==================================================== -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Done-For-You Website for Health &amp; Nutrition Practitioners</p>
+      <h1 class="hero__headline">
+        Your complete practice website —<br>
+        <em>written, designed, and launched</em> for you.
+      </h1>
+      <p class="hero__sub">No blank pages to fill. No page builders to wrestle with. You answer our questionnaire, we handle everything else — and your site is live in about three weeks.</p>
+      <div class="hero__cta-group">
+        <a href="[BOOKING LINK]" class="btn btn--primary btn--lg">Book a free call to get started</a>
+        <span class="hero__secondary-text">Not sure if this is right for you? That's what the call is for.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     PAIN / RECOGNITION
+==================================================== -->
+<section class="section" id="whats-included">
+  <div class="container">
+    <div class="pain__inner">
+      <span class="eyebrow">Sound Familiar?</span>
+      <h2 class="section-headline">Does this sound familiar?</h2>
+      <div class="pain__text">
+        <p>You've been meaning to redo your website for... a while now. Maybe you've even started — picked a template, written half an about page — and then it just sat there, waiting for you to find two free hours and the right words.</p>
+        <p>The problem isn't that you don't care. It's that writing about yourself is hard, you're busy seeing clients, and every time you sit down to tackle it you end up doing something else.</p>
+        <p>Meanwhile, the website you have (or don't have) is quietly costing you clients who find you, aren't sure what you offer, and go somewhere else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     OFFER INTRO
+==================================================== -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="offer-intro__inner">
+      <span class="eyebrow">The Solution</span>
+      <h2 class="section-headline">We build the whole thing.<br>You just answer some questions.</h2>
+      <div class="offer-intro__text">
+        <p>Most "done-for-you" website services still require you to write all the words — which is exactly why they stall. We do it differently.</p>
+        <p>You'll fill out our onboarding questionnaire and watch a few short videos that guide you through what we need. Then we take it from there: we write your copy, source your photos, build your site, and launch it. You review it and tell us what to adjust. That's the extent of your involvement.</p>
+        <p>The result: a fast, professional website built specifically for health and nutrition practitioners — designed to help people find you, understand what you offer, and reach out.</p>
+      </div>
+      <span class="callout-pill">Live in approximately 3 weeks.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     THE PROCESS
+==================================================== -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">The Process</span>
+      <h2 class="section-headline">Here's how it works</h2>
+      <p class="section-intro" style="margin: 0 auto;">We designed this to be as low-lift as possible on your end. Here's what the three weeks look like.</p>
+    </div>
+
+    <div class="process__steps">
+
+      <div class="process__step">
+        <div class="step__number">1</div>
+        <div class="step__week">Week 1</div>
+        <div class="step__title">You tell us about your business</div>
+        <p class="step__desc">You'll fill out our onboarding questionnaire and watch a few short guided videos that walk you through exactly what we need — your services, your clients, your story, and your goals. No marketing degree required. Just tell us what you do and who you help.</p>
+        <p class="step__desc">If you already have branding (logo, colors, fonts), send it over. If you don't, no problem — we'll have you choose from our curated options and build something cohesive from there. This is the only part where we need your attention. After this, you can go back to seeing clients.</p>
+      </div>
+
+      <div class="process__step">
+        <div class="step__number">2</div>
+        <div class="step__week">Week 2</div>
+        <div class="step__title">We write, design, and build</div>
+        <p class="step__desc">We take everything you gave us and get to work: writing your copy, sourcing photos, customizing the design, and building out your pages. You won't hear much from us this week — that's intentional.</p>
+      </div>
+
+      <div class="process__step">
+        <div class="step__number">3</div>
+        <div class="step__week">Week 3</div>
+        <div class="step__title">You review, we refine, and it goes live</div>
+        <p class="step__desc">We send you a preview of your site. You tell us what to adjust. We make the changes and launch. Done.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     PRICING
+==================================================== -->
+<section class="section section--cream" id="pricing">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Investment</span>
+      <h2 class="section-headline">Two options. Both fully done for you.</h2>
+      <p class="section-intro" style="margin: 0 auto;">The difference between Starter and Core comes down to how much of your online presence you want handled — not how much effort you put in. Either way, that's the same: not much.</p>
+    </div>
+
+    <div class="pricing__grid">
+
+      <!-- ——— STARTER ——— -->
+      <div class="pricing-card">
+        <div class="pricing-card__header">
+          <div class="pricing-card__tier">Tier 1</div>
+          <div class="pricing-card__name">Starter</div>
+          <div class="pricing-card__price">
+            <span class="price__currency">$</span>
+            <span class="price__amount">1,997</span>
+          </div>
+          <p class="pricing-card__subline">Best for practitioners who need a clean, professional web presence and aren't ready for a blog.</p>
+        </div>
+        <div class="pricing-card__body">
+          <ul class="pricing-card__features">
+            <li><span class="check">✦</span> 3 pages: Home, About, Work With Me</li>
+            <li><span class="check">✦</span> Copy written for every page</li>
+            <li><span class="check">✦</span> Photos sourced to match your brand</li>
+            <li><span class="check">✦</span> Your branding applied (or we create a simple brand starter)</li>
+            <li><span class="check">✦</span> Mobile-responsive, fast-loading design</li>
+            <li><span class="check">✦</span> Basic on-page SEO + AI search optimization</li>
+            <li><span class="check">✦</span> Contact form, scheduler embed, email platform connection</li>
+            <li><span class="check">✦</span> Google Analytics + Search Console setup</li>
+            <li><span class="check">✦</span> Live in approximately 3 weeks</li>
+          </ul>
+          <div class="pricing-card__maintenance">
+            <div class="maint-label">Monthly Hosting &amp; Maintenance</div>
+            <div class="maint-price">From $45/mo</div>
+            <div class="maint-desc">Includes hosting, security, software updates, and up to 1 content update per month.</div>
+          </div>
+          <div class="pricing-card__actions">
+            <a href="[BOOKING LINK]" class="btn btn--primary btn--full">Book a free call</a>
+            <a href="[PURCHASE LINK]" class="secondary-link">Apply now →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ——— CORE ——— -->
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-card__badge">Most Complete</div>
+        <div class="pricing-card__header">
+          <div class="pricing-card__tier">Tier 2</div>
+          <div class="pricing-card__name">Core</div>
+          <div class="pricing-card__price">
+            <span class="price__currency">$</span>
+            <span class="price__amount">3,497</span>
+          </div>
+          <p class="pricing-card__subline">Best for practitioners who want a full site, a blog, and a system for attracting clients over time.</p>
+        </div>
+        <div class="pricing-card__body">
+          <ul class="pricing-card__features">
+            <li><span class="check">✦</span> Everything in Starter</li>
+            <li><span class="check">✦</span> Up to 7 pages (Services, Resources, Contact, and more)</li>
+            <li><span class="check">✦</span> Blog — set up and ready to publish (or we migrate your posts)</li>
+            <li><span class="check">✦</span> Lead magnet opt-in page + thank you page</li>
+            <li><span class="check">✦</span> Welcome email sequence — built &amp; connected to your email platform</li>
+          </ul>
+          <div class="pricing-card__maintenance">
+            <div class="maint-label">Monthly Hosting &amp; Maintenance</div>
+            <div class="maint-price">From $99/mo</div>
+            <div class="maint-desc">Includes hosting, security, software updates, and up to 4 content updates per month.</div>
+          </div>
+          <div class="pricing-card__actions">
+            <a href="[BOOKING LINK]" class="btn btn--accent btn--full">Book a free call</a>
+            <a href="[PURCHASE LINK]" class="secondary-link">Apply now →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /pricing__grid -->
+
+    <div class="pricing__below">
+      <p>Not sure which is right for you? That's exactly what the discovery call is for.</p>
+      <a href="[BOOKING LINK]" class="btn btn--primary">Book a free call →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====================================================
+     COMPARISON TABLE
+==================================================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Why Us</span>
+      <h2 class="section-headline">How this compares</h2>
+    </div>
+
+    <div class="comparison__table-wrap">
+      <table class="comparison-table" role="table">
+        <thead>
+          <tr>
+            <th scope="col" style="width:26%;"></th>
+            <th scope="col">DIY <span style="font-weight:400;text-transform:none;">(Squarespace / Wix)</span></th>
+            <th scope="col">Traditional Designer</th>
+            <th scope="col" class="col-us">Whitney Bateson Digital</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>You write the copy</td>
+            <td><span class="ct-no">✓</span> <span style="color:var(--text-light);font-size:.88rem;">You do it</span></td>
+            <td><span class="ct-no">✓</span> <span style="color:var(--text-light);font-size:.88rem;">You do it</span></td>
+            <td class="col-us"><span class="ct-yes">✗</span> <span class="ct-strong">We do it</span></td>
+          </tr>
+          <tr>
+            <td>Timeline</td>
+            <td style="color:var(--text-light);">Whenever you get to it</td>
+            <td style="color:var(--text-light);">6–12 weeks</td>
+            <td class="col-us ct-strong">~3 weeks</td>
+          </tr>
+          <tr>
+            <td>Built for health practitioners</td>
+            <td><span class="ct-no">✗</span></td>
+            <td style="color:var(--text-light);">Rarely</td>
+            <td class="col-us"><span class="ct-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Ongoing support included</td>
+            <td><span class="ct-no">✗</span></td>
+            <td><span class="ct-no">✗</span></td>
+            <td class="col-us"><span class="ct-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Typical cost</td>
+            <td style="color:var(--text-light);">$200–400/yr</td>
+            <td style="color:var(--text-light);">$4,000–10,000+</td>
+            <td class="col-us ct-strong">From $1,997 + monthly</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     TESTIMONIALS
+==================================================== -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">What Practitioners Are Saying</span>
+      <h2 class="section-headline">Real results from real practitioners</h2>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-card__quote">"I'd had the same website for four years and kept saying I'd redo it next month. Whitney's team wrote everything, sourced photos that actually looked like my practice, and launched it in three weeks. I've already had two new inquiry calls."</p>
+      <div class="testimonial-card__author">
+        <div class="author-dash"></div>
+        <div class="author-info">Name, RD &nbsp;|&nbsp; City, State</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     ADD-ONS
+==================================================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Optional Add-Ons</span>
+      <h2 class="section-headline">Want to go further?</h2>
+      <p class="section-intro" style="margin: 0 auto;">A few optional additions — ask about these on your discovery call.</p>
+    </div>
+
+    <div class="addons__grid">
+
+      <div class="addon-card">
+        <div class="addon-card__icon">🎨</div>
+        <div class="addon-card__title">Brand Starter</div>
+        <p class="addon-card__desc">Don't have a logo, color palette, or fonts yet? We'll create a cohesive brand foundation before we build.</p>
+        <div class="addon-card__price">Ask on your call</div>
+      </div>
+
+      <div class="addon-card">
+        <div class="addon-card__icon">📝</div>
+        <div class="addon-card__title">Blog Migration</div>
+        <p class="addon-card__desc">Moving from WordPress, Squarespace, or Wix? We'll migrate your existing posts so nothing gets left behind.</p>
+        <div class="addon-card__price">Ask on your call</div>
+      </div>
+
+      <div class="addon-card">
+        <div class="addon-card__icon">📣</div>
+        <div class="addon-card__title">Ad Campaign Setup</div>
+        <p class="addon-card__desc">Once your site and lead magnet are live, we can set up a $5/day Facebook/Instagram campaign to start driving traffic automatically.</p>
+        <div class="addon-card__price">Ask on your call</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     FAQ
+==================================================== -->
+<section class="section section--cream" id="faq">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="section-headline">Have questions? Let's cover them.</h2>
+    </div>
+
+    <div class="faq__list" role="list">
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          What if I don't have a logo or branding?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__answer" role="region">
+          <div class="faq__answer-inner">No problem. As part of onboarding, you'll choose from our curated color palettes and font pairings, and we'll create a clean text-based logo using your business name. If you want something more custom, there's a Brand Starter add-on for that.</div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          Do I need to provide my own photos?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__answer" role="region">
+          <div class="faq__answer-inner">If you have headshots and brand photos you love, send them over. If not, we source professional stock photos that fit your niche, location, and brand. We'll let you approve the direction before we use them.</div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          What platform is the site built on?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__answer" role="region">
+          <div class="faq__answer-inner">Your site is built on a modern, custom-coded framework — not WordPress, not Squarespace, not a drag-and-drop builder. That means it's faster, more secure, and easier to maintain. You don't need to know anything about the tech — that's our job.</div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          Do I need to be on a maintenance plan?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__answer" role="region">
+          <div class="faq__answer-inner">Yes — all sites include a monthly hosting and maintenance subscription. This covers your hosting, security updates, and a set number of content updates each month. It's what keeps your site running smoothly without you ever having to think about it.</div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          What counts as a content update?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__answer" role="region">
+          <div class="faq__answer-inner">Things like changing a service description, swapping a photo, updating your hours or pricing, or adding a new testimonial. Structural changes (adding a new page, redesigning a section) are handled separately.</div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          What if I want to make changes after launch?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__answer" role="region">
+          <div class="faq__answer-inner">Small updates are included in your monthly plan. For bigger changes, just ask — we'll let you know if it falls inside or outside your plan.</div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          Do we need to meet on a call before you start?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__answer" role="region">
+          <div class="faq__answer-inner">Most of the process is handled through our questionnaire, which is designed to get us everything we need without scheduling back-and-forth. An optional 30-minute strategy call is available if you'd like to talk through anything before we start.</div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          How is this different from a custom website design?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__answer" role="region">
+          <div class="faq__answer-inner">Custom design means your designer builds something from scratch — typically 2–4 months and $5,000–$10,000+. Our process uses a proven template framework that's fully customized to your brand, copy, and photos. You get a polished, professional result at a fraction of the time and cost.</div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          What if I'm not ready to commit yet?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__answer" role="region">
+          <div class="faq__answer-inner">Book the free call anyway. There's no obligation — it's a 20-minute conversation to figure out if this is the right fit and the right timing for you.</div>
+        </div>
+      </div>
+
+    </div><!-- /faq__list -->
+  </div>
+</section>
+
+<!-- ====================================================
+     CLOSING CTA
+==================================================== -->
+<section class="closing">
+  <div class="container">
+    <div class="closing__inner">
+      <span class="eyebrow">Ready to Start?</span>
+      <h2 class="closing__headline">Ready to stop putting it off?</h2>
+      <p class="closing__body">Your website should be working for you — bringing in new clients, showing up in search, and telling your story clearly — not sitting half-finished on your to-do list. Book a free 20-minute call and we'll figure out which option makes sense for you.</p>
+      <div class="closing__cta-group">
+        <a href="[BOOKING LINK]" class="btn btn--accent btn--lg">Book your free call →</a>
+        <span class="closing__secondary">Have a question first? Email us at <a href="mailto:[EMAIL ADDRESS]">[EMAIL ADDRESS]</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     FOOTER
+==================================================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <span class="footer__logo">Whitney Bateson</span>
+      <span>© 2026 Whitney Bateson Digital Strategy</span>
+      <div class="footer__links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ====================================================
+     JAVASCRIPT
+==================================================== -->
+<script>
+  // ── FAQ accordion ────────────────────────────────────
+  document.querySelectorAll('.faq__question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item   = btn.closest('.faq__item');
+      const isOpen = item.classList.contains('open');
+      // collapse all
+      document.querySelectorAll('.faq__item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+      });
+      // expand clicked (unless it was already open)
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ── Mobile nav ───────────────────────────────────────
+  const hamburger  = document.getElementById('hamburger');
+  const mobileNav  = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+
+  function openNav()  {
+    mobileNav.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNav() {
+    mobileNav.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openNav);
+  mobileClose.addEventListener('click', closeNav);
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeNav));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+</script>
+
+</body>
+</html>
