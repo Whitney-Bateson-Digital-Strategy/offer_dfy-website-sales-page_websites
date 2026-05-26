@@ -224,7 +224,7 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .price-tagline { font-size: 15px; font-style: italic; color: #aaa; margin-bottom: 20px; line-height: 1.6; }
 .price-includes { list-style: none; margin-bottom: 20px; display: flex; flex-direction: column; gap: 9px; }
 .price-includes li { font-size: 14px; padding-left: 24px; position: relative; color: var(--text); line-height: 1.5; }
-.price-includes li::before { content: '&#10003;'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+.price-includes li::before { content: '\2713'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 .price-includes li.li-section { font-size: 10px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: #bbb; padding-left: 0; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--cream); }
 .price-includes li.li-section::before { display: none; }
 .funnel-callout { background: linear-gradient(135deg, rgba(227,246,150,0.35) 0%, rgba(174,211,221,0.2) 100%); border: 1.5px solid rgba(2,82,93,0.15); border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
@@ -329,7 +329,7 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .final-cta::after { content: ''; position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,127,80,0.10) 0%, transparent 70%); bottom: -100px; left: -50px; border-radius: 50%; pointer-events: none; }
 .final-cta-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
 .final-cta h2 { font-size: clamp(30px, 4vw, 52px); color: white; margin-bottom: 24px; }
-.final-cta h2 em { font-style: italic; color: var(--lime); }
+.final-cta h2 em { font-style: italic; color: var(--lime); transition: opacity 0.45s ease; display: inline-block; }
 .final-cta p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px; line-height: 1.7; }
 .fine-print { font-size: 13px; color: rgba(255,255,255,0.42); margin-top: 20px; }
 .fine-print a { color: var(--peach); text-decoration: underline; text-underline-offset: 2px; }
@@ -979,7 +979,7 @@ footer a { color: rgba(255,255,255,0.48); }
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="final-cta-inner">
-    <h2>Ready to stop <em>putting it off?</em></h2>
+    <h2>Ready to stop<br><em id="cta-cycle">putting it off?</em></h2>
     <p>Your website should be working for you &ndash; bringing in new clients, showing up in search, and telling your story clearly. Not sitting half-finished on your to-do list. Book a free 20-minute call and we&rsquo;ll figure out which option makes sense for you.</p>
     <a href="[BOOKING LINK]" class="btn-primary" style="padding:16px 44px;font-size:16px;">Book Your Free Call &rarr;</a>
     <p class="fine-print">Have a question first? Email us at <a href="mailto:[EMAIL ADDRESS]">[EMAIL ADDRESS]</a></p>
@@ -1007,6 +1007,22 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
     if (!isOpen) { a.classList.add('open'); q.classList.add('open'); }
   });
 });
+
+// CTA heading cycling text
+(function() {
+  var phrases = ['putting it off?', 'missing out on clients?', 'cringing when you share your link?'];
+  var idx = 0;
+  var el = document.getElementById('cta-cycle');
+  if (!el) return;
+  setInterval(function() {
+    el.style.opacity = '0';
+    setTimeout(function() {
+      idx = (idx + 1) % phrases.length;
+      el.textContent = phrases[idx];
+      el.style.opacity = '1';
+    }, 480);
+  }, 3200);
+})();
 </script>
 </body>
 </html>
