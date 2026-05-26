@@ -18,15 +18,10 @@
   --peach: #fdad8f;
   --text: #262d32;
   --white: #ffffff;
+  --light: #f7f6f3;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  font-family: 'Nunito Sans', sans-serif;
-  color: var(--text);
-  font-size: 17px;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+html { font-family: 'Nunito Sans', sans-serif; color: var(--text); font-size: 17px; line-height: 1.6; overflow-x: hidden; }
 h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; line-height: 1.25; }
 
 /* ── MARQUEE ── */
@@ -50,75 +45,95 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,127,80,0.4); }
 .btn-outline { display: inline-block; border: 2px solid var(--coral); color: var(--coral); padding: 14px 32px; border-radius: 50px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.2s; background: transparent; font-family: 'Nunito Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.06em; }
 .btn-outline:hover { background: var(--coral); color: white; }
-
-/* ── HERO ── */
-.hero { position: relative; min-height: 90vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.hero-image { position: absolute; inset: 0; z-index: 0; }
-.hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-.hero-image::after { content: ''; position: absolute; inset: 0; background: rgba(2,82,93,0.78); }
-.hero-copy { position: relative; z-index: 2; width: 100%; max-width: 820px; padding: 96px 48px; display: flex; flex-direction: column; align-items: center; text-align: center; color: var(--white); }
-.hero-label { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lime); margin-bottom: 24px; font-weight: 700; }
-.hero h1 { font-size: clamp(40px, 5.5vw, 68px); color: var(--white); margin-bottom: 24px; line-height: 1.15; }
-.hero h1 em { color: var(--lime); font-style: italic; }
-.hero-sub { font-size: 19px; color: rgba(255,255,255,0.88); margin-bottom: 40px; max-width: 560px; line-height: 1.6; }
-.hero-fine { font-size: 14px; color: rgba(255,255,255,0.58); margin-top: 16px; font-style: italic; }
-
-/* ── FLOATING STAT STICKERS ── */
-.stat-sticker { position: absolute; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-radius: 50%; box-shadow: 0 6px 24px rgba(0,0,0,0.22); animation: floatBob 4s ease-in-out infinite; line-height: 1.2; }
-.stat-sticker .ss-num { font-family: 'Playfair Display', serif; font-weight: 500; line-height: 1; }
-.stat-sticker .ss-label { font-family: 'Nunito Sans', sans-serif; font-weight: 700; line-height: 1.3; }
-.ss-coral { background: var(--coral); color: white; }
-.ss-lime  { background: var(--lime);  color: var(--teal); }
-.ss-peach { background: var(--peach); color: var(--teal); }
-.ss-sky   { background: var(--sky);   color: var(--teal); }
-.ss-lg { width: 118px; height: 118px; padding: 12px; }
-.ss-lg .ss-num { font-size: 30px; }
-.ss-lg .ss-label { font-size: 10px; margin-top: 4px; }
-.ss-md { width: 96px; height: 96px; padding: 10px; }
-.ss-md .ss-num { font-size: 22px; }
-.ss-md .ss-label { font-size: 9px; margin-top: 3px; }
-@keyframes floatBob {
-  0%, 100% { transform: translateY(0) rotate(var(--rot, -6deg)); }
-  50%       { transform: translateY(-9px) rotate(var(--rot, -6deg)); }
-}
-
-/* ── PAIN ── */
-.pain-section { background: var(--coral); padding: 96px 48px; }
-.pain-inner { max-width: 860px; margin: 0 auto; }
-.pain-section h2 { font-size: clamp(30px, 3.5vw, 46px); color: white; margin-bottom: 48px; text-align: center; }
-.pain-card { background: white; border-radius: 20px; padding: 40px 48px; box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
-.pain-card-label { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral); margin-bottom: 28px; }
-.pain-points { display: flex; flex-direction: column; gap: 0; }
-.pain-point { display: grid; grid-template-columns: 32px 1fr; gap: 16px; align-items: start; padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.07); }
-.pain-point:last-child { border-bottom: none; padding-bottom: 0; }
-.pain-arrow { font-size: 22px; }
-.pain-text { font-size: 16px; line-height: 1.68; }
-.pain-bottom { background: rgba(255,255,255,0.18); border-radius: 16px; padding: 28px 32px; margin-top: 36px; color: white; font-size: 17px; line-height: 1.7; text-align: center; font-style: italic; }
-
-/* ── TRANSITION ── */
-.transition-section { background: white; padding: 84px 48px; }
-.transition-inner { max-width: 640px; margin: 0 auto; text-align: center; }
-.transition-body { font-size: 16px; line-height: 1.8; color: #888; margin: 0 0 14px; }
-.transition-headline { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 44px); font-weight: 400; line-height: 1.3; color: var(--teal); margin: 32px 0 28px; }
-.transition-headline em { font-style: italic; color: var(--coral); }
-.sticker { display: inline-block; background: var(--lime); color: var(--teal); font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; padding: 10px 22px; border-radius: 100px; transform: rotate(-2deg); box-shadow: 2px 3px 0px rgba(0,0,0,0.12); white-space: nowrap; }
-.sticker-wrap { display: flex; justify-content: center; margin: 20px 0 36px; }
-.transition-cta { display: inline-block; background: var(--coral); color: white; padding: 14px 32px; border-radius: 40px; font-family: 'Nunito Sans', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.04em; }
-.transition-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,127,80,0.3); }
-
-/* ── SECTION LABEL ── */
 .section-label { font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; color: var(--coral); margin-bottom: 14px; }
 
-/* ── OFFER OVERVIEW ── */
-.offer-overview { background: var(--cream); padding: 96px 48px; }
-.offer-overview-inner { max-width: 1000px; margin: 0 auto; }
-.offer-overview h2 { font-size: clamp(30px, 3.5vw, 48px); color: var(--teal); margin-bottom: 16px; }
-.offer-overview h2 em { font-style: italic; }
-.offer-overview .intro-p { font-size: 17px; line-height: 1.75; color: #555; max-width: 680px; margin-bottom: 52px; }
-.offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+/* ── HERO (SPLIT) ── */
+.hero-wrap { background: var(--white); }
+.hero {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 80px 48px 96px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+  min-height: 88vh;
+}
+.hero-pill {
+  display: inline-block;
+  background: var(--lime);
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+}
+.hero h1 { font-size: clamp(34px, 4vw, 56px); color: var(--teal); margin-bottom: 24px; line-height: 1.18; }
+.hero h1 em { font-style: italic; color: var(--coral); }
+.hero-sub { font-size: 18px; color: #666; margin-bottom: 40px; line-height: 1.72; max-width: 460px; }
+.hero-fine { font-size: 13px; color: #bbb; margin-top: 14px; font-style: italic; }
+.hero-photo-wrap { position: relative; }
+.hero-photo-shadow {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 24px 24px 80px rgba(0,0,0,0.15), -4px 0 24px rgba(0,0,0,0.04);
+}
+.hero-photo-shadow img { width: 100%; height: 580px; object-fit: cover; object-position: top center; display: block; }
 
-/* browser mockup */
-.browser-mockup { background: white; border-radius: 14px; box-shadow: 0 10px 48px rgba(0,0,0,0.13); overflow: hidden; }
+/* ── TRUST BAR ── */
+.trust-bar { background: var(--teal); padding: 22px 48px; }
+.trust-bar-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 10px; padding: 6px 36px; font-size: 14px; color: rgba(255,255,255,0.82); font-weight: 600; border-right: 1px solid rgba(255,255,255,0.18); }
+.trust-item:last-child { border-right: none; }
+.trust-num { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--lime); font-weight: 500; line-height: 1; }
+
+/* ── PAIN (new format: 2×2 grid cards) ── */
+.pain-section { background: var(--white); padding: 96px 48px; }
+.pain-inner { max-width: 960px; margin: 0 auto; }
+.pain-section h2 { font-size: clamp(28px, 3.5vw, 44px); color: var(--teal); margin-bottom: 12px; max-width: 680px; }
+.pain-intro { font-size: 17px; color: #999; font-style: italic; margin-bottom: 52px; }
+.pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+.pain-card { background: var(--light); border-radius: 16px; padding: 28px 28px; display: flex; gap: 18px; align-items: flex-start; }
+.pain-num { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 500; color: var(--coral); opacity: 0.18; line-height: 0.85; flex-shrink: 0; margin-top: 2px; }
+.pain-card-content h4 { font-family: 'Nunito Sans', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 8px; line-height: 1.35; }
+.pain-card-content p { font-size: 14px; color: #777; line-height: 1.72; }
+.pain-closing { background: var(--cream); border-radius: 14px; padding: 28px 36px; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--teal); line-height: 1.7; }
+
+/* ── TRANSFORMATION ── */
+.transform-section { background: var(--cream); padding: 96px 48px; }
+.transform-inner { max-width: 960px; margin: 0 auto; }
+.transform-header { margin-bottom: 52px; }
+.transform-section h2 { font-size: clamp(28px, 3.5vw, 44px); color: var(--teal); margin-bottom: 14px; line-height: 1.25; }
+.transform-section h2 em { font-style: italic; }
+.transform-sub { font-size: 17px; color: #888; line-height: 1.7; max-width: 520px; }
+.transform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.transform-item { background: var(--white); border-radius: 16px; padding: 28px 24px; display: flex; gap: 16px; align-items: flex-start; box-shadow: 0 2px 16px rgba(0,0,0,0.04); }
+.transform-icon { width: 42px; height: 42px; background: var(--lime); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.transform-item h4 { font-family: 'Nunito Sans', sans-serif; font-weight: 700; font-size: 15px; color: var(--teal); margin-bottom: 6px; line-height: 1.35; }
+.transform-item p { font-size: 14px; color: #777; line-height: 1.65; }
+
+/* ── INTRODUCING ── */
+.introducing { background: var(--white); padding: 112px 48px; text-align: center; border-top: 1px solid var(--cream); }
+.introducing-inner { max-width: 680px; margin: 0 auto; }
+.intro-eyebrow { display: inline-block; background: var(--coral); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 22px; border-radius: 50px; margin-bottom: 32px; }
+.introducing h2 { font-size: clamp(38px, 5.5vw, 70px); color: var(--teal); margin-bottom: 20px; line-height: 1.12; }
+.introducing h2 em { font-style: italic; color: var(--coral); }
+.introducing-body { font-size: 18px; color: #777; line-height: 1.75; max-width: 520px; margin: 0 auto 36px; }
+.introducing-divider { display: flex; align-items: center; gap: 18px; max-width: 340px; margin: 0 auto 44px; }
+.introducing-divider::before, .introducing-divider::after { content: ''; flex: 1; height: 1px; background: var(--cream); }
+.introducing-divider span { font-size: 12px; color: #ccc; font-style: italic; white-space: nowrap; }
+
+/* ── OFFER OVERVIEW ── */
+.offer-overview { background: var(--white); padding: 96px 48px; border-top: 1px solid var(--cream); }
+.offer-overview-inner { max-width: 1000px; margin: 0 auto; }
+.offer-overview h2 { font-size: clamp(28px, 3.5vw, 46px); color: var(--teal); margin-bottom: 16px; line-height: 1.25; }
+.offer-overview h2 em { font-style: italic; }
+.offer-overview .intro-p { font-size: 17px; line-height: 1.75; color: #666; max-width: 680px; margin-bottom: 52px; }
+.offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+.browser-mockup { background: white; border-radius: 14px; box-shadow: 0 10px 48px rgba(0,0,0,0.12); overflow: hidden; border: 1px solid #eee; }
 .browser-chrome { background: #f0f0f0; border-bottom: 1px solid #e0e0e0; padding: 10px 16px; display: flex; align-items: center; gap: 10px; }
 .browser-dots { display: flex; gap: 6px; }
 .b-dot { width: 11px; height: 11px; border-radius: 50%; }
@@ -135,117 +150,102 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .mock-card { height: 52px; background: var(--cream); border-radius: 6px; }
 .mock-footer-bar { height: 20px; background: var(--teal); border-radius: 4px; opacity: 0.35; }
 .mock-caption { text-align: center; font-size: 12px; color: #bbb; margin-top: 10px; font-style: italic; }
-
 .checklist { list-style: none; }
-.checklist li { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(0,0,0,0.07); font-size: 16px; line-height: 1.45; }
+.checklist li { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 16px; line-height: 1.45; }
 .checklist li:last-child { border-bottom: none; }
 .check-icon { width: 24px; height: 24px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; margin-top: 1px; }
 
-/* ── PROCESS (stacking cards) ── */
-.process { background: var(--cream); padding: 96px 48px; border-top: 1px solid rgba(0,0,0,0.05); }
-.process-inner { max-width: 740px; margin: 0 auto; }
-.process h2 { font-size: clamp(28px, 3vw, 42px); margin-bottom: 8px; text-align: center; }
-.process-sub { color: #777; margin-bottom: 52px; font-size: 16px; text-align: center; }
-.stack-card { position: sticky; background: white; border-radius: 20px; box-shadow: 0 8px 40px rgba(0,0,0,0.10); overflow: hidden; margin-bottom: 36px; }
-.stack-card:nth-child(1) { top: 72px;  z-index: 1; }
-.stack-card:nth-child(2) { top: 110px; z-index: 2; }
-.stack-card:nth-child(3) { top: 148px; z-index: 3; }
-.stack-header { padding: 12px 36px; font-family: 'Nunito Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; display: flex; align-items: center; gap: 12px; }
-.stack-header .card-num { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; letter-spacing: 0; text-transform: none; opacity: 0.85; }
-.stack-card:nth-child(1) .stack-header { background: var(--coral); }
-.stack-card:nth-child(2) .stack-header { background: var(--teal); }
-.stack-card:nth-child(3) .stack-header { background: var(--peach); color: var(--teal); }
-.stack-body { padding: 36px 40px 40px; }
-.stack-week { display: inline-block; background: var(--lime); color: var(--teal); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 14px; }
-.stack-body h3 { font-size: clamp(22px, 2.5vw, 30px); color: var(--text); margin-bottom: 14px; line-height: 1.28; }
-.stack-body p { font-size: 16px; line-height: 1.72; color: #555; margin-bottom: 10px; }
-.stack-body p:last-child { margin-bottom: 0; }
+/* ── PROCESS (3 horizontal cards) ── */
+.process { background: var(--white); padding: 96px 48px; border-top: 1px solid var(--cream); }
+.process-inner { max-width: 1100px; margin: 0 auto; }
+.process-header { text-align: center; margin-bottom: 56px; }
+.process h2 { font-size: clamp(28px, 3vw, 42px); margin-bottom: 10px; color: var(--text); }
+.process-sub { color: #999; font-size: 16px; }
+.process-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+.proc-card { background: var(--white); border: 1.5px solid var(--cream); border-radius: 20px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.proc-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,0.09); }
+.proc-card-top { padding: 32px 28px 18px; }
+.proc-step-num { font-family: 'Playfair Display', serif; font-size: 80px; font-weight: 500; line-height: 0.85; margin-bottom: 16px; display: block; }
+.proc-card:nth-child(1) .proc-step-num { color: var(--coral); }
+.proc-card:nth-child(2) .proc-step-num { color: var(--teal); }
+.proc-card:nth-child(3) .proc-step-num { color: var(--peach); }
+.proc-week { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 16px; }
+.proc-card:nth-child(1) .proc-week { background: rgba(255,127,80,0.12); color: var(--coral); }
+.proc-card:nth-child(2) .proc-week { background: rgba(2,82,93,0.10); color: var(--teal); }
+.proc-card:nth-child(3) .proc-week { background: var(--lime); color: var(--teal); }
+.proc-card h3 { font-size: clamp(17px, 2vw, 21px); color: var(--text); line-height: 1.3; }
+.proc-card-body { padding: 14px 28px 32px; }
+.proc-card-body p { font-size: 14.5px; color: #666; line-height: 1.72; margin-bottom: 10px; }
+.proc-card-body p:last-child { margin-bottom: 0; }
 
-/* ── PHOTO BAND ── */
-.photo-band { position: relative; min-height: 440px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.photo-band-img { position: absolute; inset: 0; z-index: 0; }
-.photo-band-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.photo-band-img::after { content: ''; position: absolute; inset: 0; background: var(--teal); opacity: 0.74; }
-.photo-band-content { position: relative; z-index: 2; max-width: 660px; text-align: center; padding: 72px 48px; }
-.photo-band-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: rgba(255,255,255,0.42); margin-bottom: 20px; }
-.photo-band-quote { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 34px); font-weight: 400; color: white; line-height: 1.45; margin-bottom: 28px; }
-.photo-band-quote em { font-style: italic; color: var(--peach); }
-.photo-band-rule { width: 32px; height: 1.5px; background: var(--coral); border: none; margin: 0 auto; }
-
-/* ── STATS STRIP ── */
-.stats-section { background: var(--teal); padding: 80px 48px; text-align: center; }
-.stats-inner { max-width: 860px; margin: 0 auto; }
-.stats-section h2 { font-size: clamp(24px, 2.8vw, 36px); color: white; margin-bottom: 8px; }
-.stats-sub { color: rgba(255,255,255,0.68); margin-bottom: 48px; font-size: 17px; font-style: italic; }
-.stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-.stat-box { border-radius: 20px; padding: 36px 20px 28px; }
-.stat-box:nth-child(1) { background: var(--coral); }
-.stat-box:nth-child(2) { background: var(--peach); }
-.stat-box:nth-child(3) { background: var(--lime); }
-.stat-box:nth-child(2) .stat-num,
-.stat-box:nth-child(3) .stat-num { color: var(--teal); }
-.stat-box:nth-child(2) .stat-label,
-.stat-box:nth-child(3) .stat-label { color: rgba(2,82,93,0.75); }
-.stat-num { font-family: 'Playfair Display', serif; font-size: 52px; color: white; line-height: 1; margin-bottom: 10px; }
-.stat-label { font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.45; }
+/* ── ABOUT ── */
+.about { background: var(--cream); padding: 96px 48px; }
+.about-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: center; }
+.about-photo { border-radius: 20px; overflow: hidden; box-shadow: 16px 16px 60px rgba(0,0,0,0.12); }
+.about-photo img { width: 100%; height: 480px; object-fit: cover; object-position: top center; display: block; }
+.about-text .section-label { margin-bottom: 16px; }
+.about-text h2 { font-size: clamp(26px, 3vw, 38px); color: var(--teal); margin-bottom: 22px; line-height: 1.3; }
+.about-text p { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 18px; }
+.about-stats { display: flex; gap: 36px; flex-wrap: wrap; margin-top: 16px; padding-top: 24px; border-top: 1px solid rgba(0,0,0,0.1); }
+.about-stat-num { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--teal); line-height: 1; margin-bottom: 4px; }
+.about-stat-label { font-size: 12px; color: #999; line-height: 1.4; max-width: 90px; }
 
 /* ── PRICING ── */
-.pricing { background: var(--teal); padding: 96px 48px; text-align: center; }
-.pricing-inner { max-width: 940px; margin: 0 auto; }
-.pricing-label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--lime); margin-bottom: 12px; }
-.pricing h2 { font-size: clamp(28px, 3vw, 44px); margin-bottom: 10px; color: white; }
-.pricing-sub { font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 52px; max-width: 620px; margin-left: auto; margin-right: auto; }
-.pricing-grid { display: grid; grid-template-columns: 1fr 1.18fr; gap: 24px; align-items: center; }
-.price-card { background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.15); border-radius: 24px; padding: 40px 32px 36px; text-align: left; position: relative; transition: transform 0.2s; }
+.pricing { background: var(--white); padding: 96px 48px; text-align: center; border-top: 1px solid var(--cream); }
+.pricing-inner { max-width: 980px; margin: 0 auto; }
+.pricing-label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--coral); margin-bottom: 12px; }
+.pricing h2 { font-size: clamp(28px, 3vw, 44px); margin-bottom: 10px; color: var(--teal); }
+.pricing-sub { font-size: 17px; color: #888; margin-bottom: 52px; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 24px; align-items: start; text-align: left; }
+.price-card { background: var(--white); border: 1.5px solid var(--cream); border-radius: 24px; padding: 36px 32px 40px; position: relative; box-shadow: 0 4px 28px rgba(0,0,0,0.06); transition: transform 0.2s; }
 .price-card:hover { transform: translateY(-4px); }
-.price-card.featured { background: white; border: 3px solid var(--coral); padding: 56px 40px 48px; box-shadow: 0 24px 72px rgba(0,0,0,0.36), 0 0 0 6px rgba(255,127,80,0.1); border-radius: 28px; }
-.price-card.featured:hover { transform: translateY(-5px); }
-.best-badge { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: var(--coral); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 22px; border-radius: 50px; white-space: nowrap; box-shadow: 0 4px 16px rgba(255,127,80,0.45); }
-.price-card-tier { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.48); margin-bottom: 8px; }
+.price-card.featured { border: 2.5px solid var(--coral); padding: 52px 36px 48px; box-shadow: 0 16px 64px rgba(255,127,80,0.13), 0 4px 24px rgba(0,0,0,0.07); }
+.best-badge { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: var(--coral); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 22px; border-radius: 50px; white-space: nowrap; box-shadow: 0 4px 16px rgba(255,127,80,0.4); }
+.price-card-tier { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #ccc; margin-bottom: 8px; }
 .price-card.featured .price-card-tier { color: var(--coral); }
-.price-card h3 { font-size: clamp(22px, 2.5vw, 28px); color: rgba(255,255,255,0.9); margin-bottom: 4px; }
-.price-card.featured h3 { color: var(--teal); }
-.price-amount { font-family: 'Playfair Display', serif; font-size: 58px; color: white; line-height: 1; margin: 18px 0 4px; }
-.price-card.featured .price-amount { color: var(--teal); font-size: 70px; }
-.price-divider { border: none; border-top: 1px solid rgba(255,255,255,0.12); margin: 18px 0; }
-.price-card.featured .price-divider { border-color: rgba(2,82,93,0.12); }
-.price-tagline { font-size: 15px; font-style: italic; color: rgba(255,255,255,0.6); margin-bottom: 22px; line-height: 1.6; }
-.price-card.featured .price-tagline { color: #666; font-size: 16px; margin-bottom: 26px; }
+.price-card h3 { font-size: clamp(22px, 2.5vw, 28px); color: var(--teal); margin-bottom: 4px; }
+.price-amount { font-family: 'Playfair Display', serif; font-size: 58px; color: var(--teal); line-height: 1; margin: 16px 0 4px; }
+.price-card.featured .price-amount { font-size: 68px; color: var(--coral); }
+.price-divider { border: none; border-top: 1px solid var(--cream); margin: 18px 0; }
+.price-tagline { font-size: 15px; font-style: italic; color: #aaa; margin-bottom: 20px; line-height: 1.6; }
 .price-includes { list-style: none; margin-bottom: 20px; display: flex; flex-direction: column; gap: 9px; }
-.price-includes li { font-size: 14px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.72); line-height: 1.5; }
-.price-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--lime); font-weight: 700; }
-.price-card.featured .price-includes li { color: var(--text); font-size: 14.5px; }
-.price-card.featured .price-includes li::before { color: var(--teal); }
-.price-includes li.li-section { font-size: 10px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: rgba(255,255,255,0.32); padding-left: 0; margin-top: 6px; }
+.price-includes li { font-size: 14px; padding-left: 24px; position: relative; color: var(--text); line-height: 1.5; }
+.price-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+.price-includes li.li-section { font-size: 10px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: #bbb; padding-left: 0; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--cream); }
 .price-includes li.li-section::before { display: none; }
-.price-card.featured .price-includes li.li-section { color: rgba(2,82,93,0.38); }
-.price-maint { background: var(--cream); border-radius: 12px; padding: 14px 18px; margin-bottom: 24px; }
+.price-maint { background: var(--light); border-radius: 12px; padding: 16px 18px; margin-top: 4px; }
 .price-maint-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 3px; }
 .price-maint-amount { font-size: 17px; font-weight: 700; color: var(--teal); }
 .price-maint-desc { font-size: 12px; color: #888; line-height: 1.4; margin-top: 3px; }
-.btn-enroll { display: block; padding: 14px 16px; border-radius: 50px; font-weight: 700; font-size: 13px; text-decoration: none; cursor: pointer; border: none; font-family: 'Nunito Sans', sans-serif; transition: transform 0.15s, box-shadow 0.15s; width: 100%; text-transform: uppercase; letter-spacing: 0.07em; text-align: center; }
-.price-card .btn-enroll { background: rgba(255,255,255,0.13); color: rgba(255,255,255,0.9); border: 1.5px solid rgba(255,255,255,0.26); }
-.price-card .btn-enroll:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
-.price-card.featured .btn-enroll { background: var(--coral); color: white; border: none; padding: 18px; font-size: 15px; box-shadow: 0 4px 20px rgba(255,127,80,0.3); }
-.price-card.featured .btn-enroll:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,127,80,0.5); }
-.price-secondary-link { display: block; text-align: center; margin-top: 10px; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: opacity 0.2s; }
-.price-card.featured .price-secondary-link { color: rgba(2,82,93,0.55); }
-.price-secondary-link:hover { opacity: 1; text-decoration: underline; }
-.pricing-below { margin-top: 40px; }
-.pricing-below p { font-size: 16px; color: rgba(255,255,255,0.62); font-style: italic; margin-bottom: 20px; }
+.pricing-below { margin-top: 44px; text-align: center; }
+.pricing-below p { font-size: 16px; color: #999; font-style: italic; margin-bottom: 24px; }
+
+/* ── ADD-ONS ── */
+.addons { background: var(--teal); padding: 80px 48px; color: white; }
+.addons-inner { max-width: 920px; margin: 0 auto; }
+.addons h2 { font-size: clamp(26px, 3vw, 40px); text-align: center; margin-bottom: 10px; color: white; }
+.addons-eyebrow { font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; color: var(--lime); margin-bottom: 10px; text-align: center; }
+.addons-sub { text-align: center; color: rgba(255,255,255,0.68); margin-bottom: 44px; font-size: 16px; }
+.addons-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.addon-card { background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; padding: 28px 24px; transition: background 0.2s, transform 0.2s; }
+.addon-card:hover { background: rgba(255,255,255,0.16); transform: translateY(-3px); }
+.addon-emoji { font-size: 28px; margin-bottom: 12px; display: block; }
+.addon-card h3 { font-size: 17px; color: white; margin-bottom: 6px; font-family: 'Nunito Sans', sans-serif; font-weight: 700; }
+.addon-price { font-size: 11px; color: var(--lime); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
+.addon-card p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.62; }
 
 /* ── WHO IT'S FOR ── */
-.who { background: white; padding: 96px 48px; }
+.who { background: var(--white); padding: 96px 48px; border-top: 1px solid var(--cream); }
 .who-inner { max-width: 900px; margin: 0 auto; }
 .who h2 { font-size: clamp(28px, 3vw, 42px); text-align: center; margin-bottom: 48px; }
-.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-.who-box { border-radius: 20px; padding: 36px 36px; }
-.who-yes { background: rgba(2,82,93,0.06); border: 1.5px solid rgba(2,82,93,0.14); }
-.who-no  { background: rgba(255,127,80,0.06); border: 1.5px solid rgba(255,127,80,0.14); }
-.who-box h3 { font-size: 19px; margin-bottom: 24px; font-family: 'Nunito Sans', sans-serif; font-weight: 700; }
+.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.who-box { border-radius: 20px; padding: 36px 32px; }
+.who-yes { background: rgba(2,82,93,0.05); border: 1.5px solid rgba(2,82,93,0.12); }
+.who-no  { background: rgba(255,127,80,0.05); border: 1.5px solid rgba(255,127,80,0.12); }
+.who-box h3 { font-size: 18px; margin-bottom: 22px; font-family: 'Nunito Sans', sans-serif; font-weight: 700; }
 .who-yes h3 { color: var(--teal); }
 .who-no h3  { color: var(--coral); }
-.who-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+.who-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .who-list li { font-size: 15px; line-height: 1.5; padding-left: 26px; position: relative; }
 .who-list li::before { position: absolute; left: 0; }
 .who-yes .who-list li::before { content: '✅'; }
@@ -263,18 +263,18 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .ct tbody tr { border-bottom: 1px solid var(--cream); transition: background 0.15s; }
 .ct tbody tr:last-child { border-bottom: none; }
 .ct tbody tr:hover { background: #fafafa; }
-.ct td { padding: 14px 24px; font-size: 15px; color: #777; vertical-align: middle; }
+.ct td { padding: 14px 24px; font-size: 15px; color: #999; vertical-align: middle; }
 .ct td:first-child { font-weight: 600; color: var(--text); }
 .ct td.col-us { background: rgba(2,82,93,0.04); }
-.ct-yes { color: var(--coral); font-weight: 700; font-size: 16px; }
-.ct-no  { color: #ccc; }
+.ct-yes  { color: #22a06b; font-weight: 700; font-size: 17px; }
+.ct-no   { color: #e04646; font-size: 17px; }
 .ct-strong { font-weight: 700; color: var(--teal); }
 
 /* ── TESTIMONIALS ── */
 .testimonials { background: var(--pink); padding: 96px 48px; }
 .testimonials-inner { max-width: 800px; margin: 0 auto; }
 .testimonials h2 { font-size: clamp(26px, 3vw, 40px); text-align: center; margin-bottom: 8px; }
-.testi-sub { text-align: center; color: var(--teal); font-size: 17px; margin-bottom: 52px; font-style: italic; }
+.testi-sub { text-align: center; color: var(--teal); font-size: 16px; margin-bottom: 48px; font-style: italic; }
 .testi-card { background: white; border-radius: 20px; padding: 40px 44px; box-shadow: 0 2px 20px rgba(0,0,0,0.07); display: flex; flex-direction: column; gap: 16px; }
 .testi-stars { color: var(--coral); font-size: 17px; letter-spacing: 3px; }
 .testi-quote { font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; font-weight: 400; line-height: 1.68; color: var(--text); }
@@ -282,37 +282,24 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .testi-author { display: flex; align-items: center; gap: 12px; margin-top: 4px; }
 .testi-rule { width: 28px; height: 2px; background: var(--coral); flex-shrink: 0; }
 .testi-name { font-weight: 700; font-size: 15px; color: var(--teal); }
-.testi-cta { text-align: center; margin-top: 44px; }
+.testi-cta { text-align: center; margin-top: 40px; }
 
-/* ── ADD-ONS (bonus-style) ── */
-.addons { background: var(--teal); padding: 96px 48px; color: white; }
-.addons-inner { max-width: 900px; margin: 0 auto; }
-.addons h2 { font-size: clamp(28px, 3vw, 44px); text-align: center; margin-bottom: 10px; color: white; }
-.addons-sub { text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 52px; font-size: 17px; }
-.addons-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-.addon-card { background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 28px 28px; transition: background 0.2s, transform 0.2s; }
-.addon-card:hover { background: rgba(255,255,255,0.17); transform: translateY(-3px); }
-.addon-emoji { font-size: 28px; margin-bottom: 12px; display: block; }
-.addon-card h3 { font-size: 18px; color: white; margin-bottom: 6px; font-family: 'Nunito Sans', sans-serif; font-weight: 700; }
-.addon-price { font-size: 11px; color: var(--lime); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
-.addon-card p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.62; }
-
-/* ── FAQ ── */
-.faq { background: linear-gradient(180deg, var(--cream) 0%, var(--pink) 100%); padding: 96px 48px; }
-.faq-inner { max-width: 760px; margin: 0 auto; }
-.faq h2 { font-size: clamp(28px, 3vw, 42px); text-align: center; margin-bottom: 48px; }
-.faq-items { display: flex; flex-direction: column; gap: 12px; }
-.faq-item { background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-.faq-q { padding: 22px 28px; font-weight: 600; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; gap: 16px; }
-.faq-q::after { content: '+'; font-size: 22px; color: var(--teal); transition: transform 0.2s; flex-shrink: 0; }
+/* ── FAQ (2-column) ── */
+.faq { background: var(--white); padding: 96px 48px; border-top: 1px solid var(--cream); }
+.faq-inner { max-width: 1060px; margin: 0 auto; }
+.faq h2 { font-size: clamp(28px, 3vw, 42px); text-align: center; margin-bottom: 52px; }
+.faq-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+.faq-item { background: var(--light); border-radius: 14px; overflow: hidden; }
+.faq-q { padding: 20px 24px; font-weight: 600; font-size: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; gap: 14px; line-height: 1.4; }
+.faq-q::after { content: '+'; font-size: 20px; color: var(--teal); transition: transform 0.2s; flex-shrink: 0; }
 .faq-q.open::after { transform: rotate(45deg); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.2s; padding: 0 28px; font-size: 15px; line-height: 1.75; color: #555; }
-.faq-a.open { max-height: 350px; padding: 0 28px 22px; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.2s; padding: 0 24px; font-size: 14.5px; line-height: 1.75; color: #666; }
+.faq-a.open { max-height: 400px; padding: 0 24px 20px; }
 
 /* ── FINAL CTA ── */
 .final-cta { background: linear-gradient(135deg, var(--teal) 0%, #013d46 100%); padding: 104px 48px; text-align: center; color: white; position: relative; overflow: hidden; }
-.final-cta::before { content: ''; position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(227,246,150,0.12) 0%, transparent 70%); top: -200px; right: -100px; border-radius: 50%; }
-.final-cta::after { content: ''; position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,127,80,0.10) 0%, transparent 70%); bottom: -100px; left: -50px; border-radius: 50%; }
+.final-cta::before { content: ''; position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(227,246,150,0.12) 0%, transparent 70%); top: -200px; right: -100px; border-radius: 50%; pointer-events: none; }
+.final-cta::after { content: ''; position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,127,80,0.10) 0%, transparent 70%); bottom: -100px; left: -50px; border-radius: 50%; pointer-events: none; }
 .final-cta-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
 .final-cta h2 { font-size: clamp(30px, 4vw, 52px); color: white; margin-bottom: 24px; }
 .final-cta h2 em { font-style: italic; color: var(--lime); }
@@ -326,23 +313,28 @@ footer a { color: rgba(255,255,255,0.48); }
 .footer-links { margin-top: 8px; display: flex; justify-content: center; gap: 24px; }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; padding: 60px 32px 72px; gap: 40px; }
+  .hero-photo-wrap { order: -1; }
+  .hero-photo-shadow img { height: 380px; }
+  .hero-sub { max-width: 100%; }
+  .about-inner { grid-template-columns: 1fr; }
+  .about-photo { display: none; }
+}
 @media (max-width: 768px) {
   nav { padding: 14px 24px; }
   .nav-links { display: none; }
-  .hero { min-height: 92vh; }
-  .hero-copy { padding: 60px 28px 72px; }
-  .stat-sticker { display: none; }
-  .pain-section, .transition-section, .offer-overview, .process, .stats-section,
-  .pricing, .who, .comparison, .testimonials, .addons, .faq, .final-cta { padding: 64px 24px; }
-  .pain-card { padding: 28px 24px; }
-  .offer-grid, .who-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: 1fr; }
+  .pain-section, .transform-section, .introducing, .offer-overview, .process,
+  .about, .pricing, .addons, .who, .comparison, .testimonials, .faq, .final-cta { padding: 64px 24px; }
+  .trust-bar { padding: 16px 24px; }
+  .trust-bar-inner { flex-direction: column; gap: 0; }
+  .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); padding: 10px 0; width: 100%; justify-content: center; }
+  .trust-item:last-child { border-bottom: none; }
+  .pain-grid, .transform-grid, .who-grid, .faq-columns { grid-template-columns: 1fr; }
+  .offer-grid { grid-template-columns: 1fr; }
+  .process-cards { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
-  .price-card { padding: 36px 28px 32px; }
-  .price-card.featured { padding: 52px 28px 40px; }
   .addons-grid { grid-template-columns: 1fr; }
-  .stack-body { padding: 28px 24px 32px; }
-  .stack-header { padding: 10px 24px; font-size: 11px; }
   .testi-card { padding: 28px 24px; }
   footer { padding: 24px; }
 }
@@ -370,6 +362,7 @@ footer a { color: rgba(255,255,255,0.48); }
 </div>
 
 <!-- NAV -->
+<!-- Replace "Whitney Bateson" text with <img> tag once you have the logo URL -->
 <nav>
   <a class="nav-logo" href="#top">Whitney Bateson</a>
   <div class="nav-links">
@@ -380,76 +373,124 @@ footer a { color: rgba(255,255,255,0.48); }
   <a class="nav-cta" href="[BOOKING LINK]">Book a Free Call</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-image">
-    <img src="https://whitneybateson.com/wp-content/uploads/2025/11/20230323-DSC04230-2-scaled.jpg" alt="Whitney Bateson" loading="eager">
+<!-- HERO (split layout) -->
+<div class="hero-wrap" id="top">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-pill">Done-For-You Website &bull; Health &amp; Nutrition Practitioners</div>
+      <h1>Your complete practice website &mdash; <em>written, designed, and launched</em> for you.</h1>
+      <p class="hero-sub">No blank pages to fill. No page builders to wrestle with. You answer our questionnaire, we handle everything else. Live in approximately 3 weeks.</p>
+      <a href="[BOOKING LINK]" class="btn-primary">Book a Free Call to Get Started &rarr;</a>
+      <p class="hero-fine">Not sure if this is right for you? That&rsquo;s what the call is for.</p>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-shadow">
+        <img src="https://whitneybateson.com/wp-content/uploads/2025/11/20230323-DSC04230-2-scaled.jpg" alt="Whitney Bateson" loading="eager">
+      </div>
+    </div>
   </div>
+</div>
 
-  <!-- floating stat stickers -->
-  <div class="stat-sticker ss-coral ss-lg" style="top:20%;right:7%;--rot:-8deg;animation-delay:0s;">
-    <span class="ss-num">~3</span>
-    <span class="ss-label">weeks<br>to live</span>
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="trust-num">130+</span>&nbsp; health practitioners helped</div>
+    <div class="trust-item"><span class="trust-num">8+</span>&nbsp; years exclusively in this niche</div>
+    <div class="trust-item"><span class="trust-num">~3</span>&nbsp; weeks from questionnaire to launch</div>
   </div>
-  <div class="stat-sticker ss-lime ss-md" style="bottom:26%;right:5%;--rot:6deg;animation-delay:1s;">
-    <span class="ss-num">0</span>
-    <span class="ss-label">words to<br>write</span>
-  </div>
-  <div class="stat-sticker ss-peach ss-md" style="top:54%;right:16%;--rot:-3deg;animation-delay:1.8s;">
-    <span class="ss-num">100%</span>
-    <span class="ss-label">done<br>for you</span>
-  </div>
-
-  <div class="hero-copy">
-    <div class="hero-label">Done-For-You Website &bull; Health &amp; Nutrition Practitioners</div>
-    <h1>Your complete practice website &mdash; <em>written, designed, and launched</em> for you.</h1>
-    <p class="hero-sub">No blank pages to fill. No page builders to wrestle with. You answer our questionnaire, we handle everything else.</p>
-    <a href="[BOOKING LINK]" class="btn-primary">Book a Free Call to Get Started &rarr;</a>
-    <p class="hero-fine">Not sure if this is right for you? That&rsquo;s what the call is for.</p>
-  </div>
-</section>
+</div>
 
 <!-- PAIN -->
 <section class="pain-section">
   <div class="pain-inner">
+    <div class="section-label">Sound familiar?</div>
     <h2>You&rsquo;ve been meaning to redo your website for&hellip; a while now.</h2>
-    <div class="pain-card">
-      <div class="pain-card-label">Be honest &mdash; does any of this sound familiar?</div>
-      <div class="pain-points">
-        <div class="pain-point">
-          <div class="pain-arrow">⏱️</div>
-          <div class="pain-text">You&rsquo;ve started the website project more than once. Picked a template. Written half an About page. Then it sat there, waiting for you to find two free hours you never seem to have.</div>
+    <p class="pain-intro">Be honest. Does any of this ring a bell?</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-num">01</div>
+        <div class="pain-card-content">
+          <h4>You&rsquo;ve started it more than once</h4>
+          <p>You picked a template. Wrote half an About page. Then it sat there, waiting for the two free hours you never quite seem to find.</p>
         </div>
-        <div class="pain-point">
-          <div class="pain-arrow">✍️</div>
-          <div class="pain-text">Writing about yourself is genuinely hard. You know exactly what your clients need &mdash; but putting that into words on a website? That&rsquo;s a completely different skill set.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">02</div>
+        <div class="pain-card-content">
+          <h4>Writing about yourself feels impossible</h4>
+          <p>You know exactly what your clients need &mdash; but translating that into clear, compelling website copy? That&rsquo;s a completely different skill set.</p>
         </div>
-        <div class="pain-point">
-          <div class="pain-arrow">🤯</div>
-          <div class="pain-text">You opened a page builder once. Between the blocks, the templates, and the &ldquo;just drag it here&rdquo; that never goes where you want &mdash; it&rsquo;s not worth the hours.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">03</div>
+        <div class="pain-card-content">
+          <h4>Page builders are not your friend</h4>
+          <p>You opened one once. The drag-and-drop never went where you wanted, the sections wouldn&rsquo;t stack right, and it wasn&rsquo;t worth three hours of frustration.</p>
         </div>
-        <div class="pain-point">
-          <div class="pain-arrow">😶</div>
-          <div class="pain-text">Meanwhile, the website you have (or don&rsquo;t have) is quietly costing you clients who find you, can&rsquo;t figure out what you offer, and go somewhere else.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">04</div>
+        <div class="pain-card-content">
+          <h4>Your current site is costing you clients</h4>
+          <p>Potential clients find you, can&rsquo;t figure out what you offer, and quietly go somewhere else. The website that isn&rsquo;t finished is already doing damage.</p>
         </div>
       </div>
     </div>
-    <div class="pain-bottom">
+    <div class="pain-closing">
       The problem isn&rsquo;t that you don&rsquo;t care. It&rsquo;s that you&rsquo;re busy doing the actual work &mdash; which is the whole point.
     </div>
   </div>
 </section>
 
-<!-- TRANSITION -->
-<section class="transition-section">
-  <div class="transition-inner">
-    <p class="transition-body">Most &ldquo;done-for-you&rdquo; website services still require you to write all the words &mdash; which is exactly why they stall. We do it differently.</p>
-    <h3 class="transition-headline">We build the <em>whole thing.</em><br>You just answer some questions.</h3>
-    <p class="transition-body">You fill out our onboarding questionnaire. We write your copy, source your photos, build your site, and launch it. You review it and tell us what to adjust. That&rsquo;s the extent of your involvement.</p>
-    <div class="sticker-wrap">
-      <span class="sticker">Live in approximately 3 weeks.</span>
+<!-- TRANSFORMATION -->
+<section class="transform-section">
+  <div class="transform-inner">
+    <div class="transform-header">
+      <div class="section-label">After your DFY Website launch</div>
+      <h2>What changes when you have a website<br><em>that actually works for you</em></h2>
+      <p class="transform-sub">Your website should be working in the background while you&rsquo;re busy seeing clients. Here&rsquo;s what that looks like in practice.</p>
     </div>
-    <a href="[BOOKING LINK]" class="transition-cta">I want this for my practice &rarr;</a>
+    <div class="transform-grid">
+      <div class="transform-item">
+        <div class="transform-icon">🌿</div>
+        <div>
+          <h4>New clients find you through Google</h4>
+          <p>With SEO built in from the start, the right people discover you &mdash; and immediately know you&rsquo;re the right fit before they ever click &ldquo;contact.&rdquo;</p>
+        </div>
+      </div>
+      <div class="transform-item">
+        <div class="transform-icon">💬</div>
+        <div>
+          <h4>Your website does the explaining for you</h4>
+          <p>It clearly communicates what you do, who it&rsquo;s for, and how to work with you &mdash; so you stop repeating yourself on every single discovery call.</p>
+        </div>
+      </div>
+      <div class="transform-item">
+        <div class="transform-icon">✨</div>
+        <div>
+          <h4>Your online presence matches your expertise</h4>
+          <p>You&rsquo;re exceptional at what you do. Your website finally reflects that &mdash; instead of quietly undermining it every time someone searches your name.</p>
+        </div>
+      </div>
+      <div class="transform-item">
+        <div class="transform-icon">🕐</div>
+        <div>
+          <h4>You get back hours you weren&rsquo;t spending well</h4>
+          <p>No more wrestling with tech, agonizing over copy, or explaining to clients why your site is &ldquo;a work in progress.&rdquo; It&rsquo;s live. It&rsquo;s working. You&rsquo;re done.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRODUCING -->
+<section class="introducing">
+  <div class="introducing-inner">
+    <div class="intro-eyebrow">Introducing</div>
+    <h2>The Done-For-You<br><em>Website</em></h2>
+    <p class="introducing-body">A complete practice website for health and nutrition practitioners &mdash; written, designed, and launched for you in approximately 3 weeks. Two packages. Both fully handled.</p>
+    <div class="introducing-divider"><span>Available in two tiers below</span></div>
+    <a href="#pricing" class="btn-outline">See Pricing &amp; Packages &darr;</a>
   </div>
 </section>
 
@@ -464,9 +505,7 @@ footer a { color: rgba(255,255,255,0.48); }
         <div class="browser-mockup">
           <div class="browser-chrome">
             <div class="browser-dots">
-              <div class="b-dot"></div>
-              <div class="b-dot"></div>
-              <div class="b-dot"></div>
+              <div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div>
             </div>
             <div class="browser-url">yourpractice.com</div>
           </div>
@@ -485,14 +524,14 @@ footer a { color: rgba(255,255,255,0.48); }
             <div class="mock-footer-bar"></div>
           </div>
         </div>
-        <p class="mock-caption">Your actual site will look nothing like this placeholder &mdash; it&rsquo;s built to your brand.</p>
+        <p class="mock-caption">Built to your brand, your voice, your practice.</p>
       </div>
       <div>
         <p style="font-size:17px;margin-bottom:16px;font-weight:700;color:var(--teal);">Every site includes:</p>
         <ul class="checklist">
           <li><div class="check-icon">✓</div><span>Copy written for every page &mdash; you don&rsquo;t write a word</span></li>
           <li><div class="check-icon">✓</div><span>Professional photos sourced and approved by you</span></li>
-          <li><div class="check-icon">✓</div><span>Your branding applied (or we build one from our curated options)</span></li>
+          <li><div class="check-icon">✓</div><span>Your branding applied (or we build one from curated options)</span></li>
           <li><div class="check-icon">✓</div><span>Mobile-responsive, fast-loading design</span></li>
           <li><div class="check-icon">✓</div><span>On-page SEO + AI search optimization</span></li>
           <li><div class="check-icon">✓</div><span>Scheduler embed, contact form, email list connection</span></li>
@@ -504,83 +543,77 @@ footer a { color: rgba(255,255,255,0.48); }
   </div>
 </section>
 
-<!-- PROCESS (stacking sticky cards) -->
+<!-- PROCESS (3 horizontal cards) -->
 <section class="process">
   <div class="process-inner">
-    <div class="section-label" style="text-align:center;">The Process</div>
-    <h2>Here&rsquo;s what the three weeks look like.</h2>
-    <p class="process-sub">Designed to be as low-lift as possible on your end. Scroll to see it unfold.</p>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="card-num">01</span>
-        <span>You Tell Us About Your Business</span>
+    <div class="process-header">
+      <div class="section-label" style="text-align:center;">The Process</div>
+      <h2>Here&rsquo;s what the three weeks look like.</h2>
+      <p class="process-sub">Designed to be as low-lift as possible on your end.</p>
+    </div>
+    <div class="process-cards">
+      <div class="proc-card">
+        <div class="proc-card-top">
+          <span class="proc-step-num">01</span>
+          <div class="proc-week">Week 1</div>
+          <h3>You tell us about your business</h3>
+        </div>
+        <div class="proc-card-body">
+          <p>You fill out our onboarding questionnaire and watch a few short guided videos covering your services, clients, story, and goals. No marketing degree required.</p>
+          <p>If you have branding, send it over. If not, you choose from our curated palettes and we build something cohesive. After this, you go back to seeing clients.</p>
+        </div>
       </div>
-      <div class="stack-body">
-        <div class="stack-week">Week 1</div>
-        <h3>You fill out our questionnaire.<br>That&rsquo;s the extent of your involvement.</h3>
-        <p>You&rsquo;ll answer our onboarding questionnaire and watch a few short guided videos that walk you through exactly what we need &mdash; your services, your clients, your story, and your goals. No marketing degree required.</p>
-        <p>If you already have branding (logo, colors, fonts), send it over. If you don&rsquo;t, you&rsquo;ll choose from our curated palettes and we&rsquo;ll build something cohesive. After this, you can go back to seeing clients.</p>
+      <div class="proc-card">
+        <div class="proc-card-top">
+          <span class="proc-step-num">02</span>
+          <div class="proc-week">Week 2</div>
+          <h3>We write, design, and build</h3>
+        </div>
+        <div class="proc-card-body">
+          <p>We take everything you gave us and get to work: writing your copy, sourcing photos, customizing the design, and building every page. You won&rsquo;t hear much from us.</p>
+          <p><em>That&rsquo;s intentional. This is the week the magic happens.</em></p>
+        </div>
+      </div>
+      <div class="proc-card">
+        <div class="proc-card-top">
+          <span class="proc-step-num">03</span>
+          <div class="proc-week">Week 3</div>
+          <h3>You review, we refine, it goes live</h3>
+        </div>
+        <div class="proc-card-body">
+          <p>We share a staging link and you give us your feedback. We handle the revisions and launch your site.</p>
+          <p>From here, your monthly maintenance plan keeps everything running, secure, and up to date &mdash; without you ever having to log in.</p>
+        </div>
       </div>
     </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="card-num">02</span>
-        <span>We Write, Design, and Build</span>
-      </div>
-      <div class="stack-body">
-        <div class="stack-week">Week 2</div>
-        <h3>You won&rsquo;t hear much from us.<br>That&rsquo;s intentional.</h3>
-        <p>We take everything you gave us and get to work: writing your copy, sourcing photos, customizing the design, and building out every page. We check mobile layout, page speed, and SEO foundations before anything goes to preview.</p>
-        <p style="font-style:italic;color:#999;">This is the week where the magic happens.</p>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="card-num">03</span>
-        <span>You Review, We Refine, It Goes Live</span>
-      </div>
-      <div class="stack-body">
-        <div class="stack-week">Week 3</div>
-        <h3>We send a preview. You tell us what to adjust. Done.</h3>
-        <p>We share a staging link and you give us your feedback. We handle the revisions and launch your site. From here, your monthly maintenance plan keeps it running, secure, and up to date &mdash; without you ever having to log in.</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- PHOTO BAND -->
-<section class="photo-band">
-  <div class="photo-band-img">
-    <img src="https://whitneybateson.com/wp-content/uploads/2025/12/windows-2EwyKv4-03k-unsplash-scaled.jpg" alt="Working from laptop" loading="lazy">
-  </div>
-  <div class="photo-band-content">
-    <div class="photo-band-eyebrow">From Whitney</div>
-    <div class="photo-band-quote">&ldquo;I built this for practitioners who are <em>exceptional</em> at their work &mdash; and completely over the stress of their website.&rdquo;</div>
-    <hr class="photo-band-rule">
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="stats-section">
-  <div class="stats-inner">
-    <h2>Everything handled. Nothing on your plate.</h2>
-    <p class="stats-sub">Here&rsquo;s what you&rsquo;re not doing while we build your site:</p>
-    <div class="stats-grid">
-      <div class="stat-box">
-        <div class="stat-num">0</div>
-        <div class="stat-label">Words you have to write. We handle all the copy.</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">~3</div>
-        <div class="stat-label">Weeks from questionnaire to a live, polished site.</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Hours saved vs. building it yourself on a page builder.</div>
+<!-- ABOUT WHITNEY -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-photo">
+      <img src="https://whitneybateson.com/wp-content/uploads/2025/11/20230323-DSC04230-2-scaled.jpg" alt="Whitney Bateson" loading="lazy">
+    </div>
+    <div class="about-text">
+      <div class="section-label">About Whitney</div>
+      <h2>I&rsquo;ve spent 8+ years building websites exclusively for health practitioners.</h2>
+      <p>After working with 130+ practitioners &mdash; health coaches, registered dietitians, functional medicine doctors, and nutrition therapists &mdash; I kept seeing the same bottleneck: the copy.</p>
+      <p>Practitioners knew exactly how to help their clients. But writing about themselves and their services? That&rsquo;s where everything stalled. They&rsquo;d start a website, get to the blank &ldquo;About&rdquo; page, and stop.</p>
+      <p>So I built this service to remove that bottleneck entirely. You answer our questionnaire. We write everything. Your site goes live in about 3 weeks. Because you shouldn&rsquo;t have to become a copywriter or web designer just to have an online presence that works.</p>
+      <div class="about-stats">
+        <div>
+          <div class="about-stat-num">130+</div>
+          <div class="about-stat-label">practitioners served</div>
+        </div>
+        <div>
+          <div class="about-stat-num">8+</div>
+          <div class="about-stat-label">years in this niche</div>
+        </div>
+        <div>
+          <div class="about-stat-num">~3</div>
+          <div class="about-stat-label">weeks to launch</div>
+        </div>
       </div>
     </div>
   </div>
@@ -590,8 +623,8 @@ footer a { color: rgba(255,255,255,0.48); }
 <section class="pricing" id="pricing">
   <div class="pricing-inner">
     <div class="pricing-label">Investment</div>
-    <h2>Two options. Both fully done for you.</h2>
-    <p class="pricing-sub">The difference is how much of your online presence you want handled &mdash; not how much effort you put in. Either way, that&rsquo;s the same: not much.</p>
+    <h2>Two packages. Both fully done for you.</h2>
+    <p class="pricing-sub">The difference is scope &mdash; not how much effort you put in. Either way, that&rsquo;s the same: not much.</p>
 
     <div class="pricing-grid">
 
@@ -603,14 +636,18 @@ footer a { color: rgba(255,255,255,0.48); }
         <hr class="price-divider">
         <p class="price-tagline">Best for practitioners who need a clean, professional web presence and aren&rsquo;t ready for a blog.</p>
         <ul class="price-includes">
+          <li class="li-section">Pages &amp; Copy</li>
           <li>3 pages: Home, About, Work With Me</li>
-          <li>Copy written for every page</li>
-          <li>Photos sourced to match your brand</li>
-          <li>Your branding applied (or a brand starter)</li>
+          <li>Every page fully copywritten &mdash; you don&rsquo;t write a word</li>
+          <li class="li-section">Design &amp; Brand</li>
+          <li>Professional photos sourced to match your brand</li>
+          <li>Your branding applied &mdash; or choose from our curated options</li>
           <li>Mobile-responsive, fast-loading design</li>
+          <li class="li-section">Tech &amp; Setup</li>
           <li>On-page SEO + AI search optimization</li>
-          <li>Contact form, scheduler embed, email connection</li>
+          <li>Scheduler embed, contact form, email list connection</li>
           <li>Google Analytics + Search Console setup</li>
+          <li>Up to 2 revision rounds</li>
           <li>Live in approximately 3 weeks</li>
         </ul>
         <div class="price-maint">
@@ -618,39 +655,75 @@ footer a { color: rgba(255,255,255,0.48); }
           <div class="price-maint-amount">From $45/mo</div>
           <div class="price-maint-desc">Hosting, security, updates + 1 content edit/mo</div>
         </div>
-        <a href="[BOOKING LINK]" class="btn-enroll">Book a Free Call &rarr;</a>
-        <a href="[PURCHASE LINK]" class="price-secondary-link">Apply now &rarr;</a>
       </div>
 
-      <!-- CORE (featured) -->
+      <!-- SYSTEM (featured) -->
       <div class="price-card featured">
         <div class="best-badge">Most Complete</div>
         <div class="price-card-tier">Tier 2</div>
-        <h3>Core</h3>
+        <h3>System</h3>
         <div class="price-amount">$3,497</div>
         <hr class="price-divider">
-        <p class="price-tagline">Best for practitioners who want a full site, a blog, and a system for attracting clients over time.</p>
+        <p class="price-tagline">Best for practitioners who want a full site, a blog, and a system that attracts clients over time.</p>
         <ul class="price-includes">
-          <li class="li-section">Everything in Starter, plus:</li>
-          <li>Up to 7 pages (Services, Resources, Contact &amp; more)</li>
-          <li>Blog &mdash; set up and ready to publish (or we migrate your posts)</li>
+          <li class="li-section">Pages &amp; Copy</li>
+          <li>Up to 7 pages: Home, About, Work With Me, Services, Resources, Contact + more</li>
+          <li>Every page fully copywritten &mdash; you don&rsquo;t write a word</li>
           <li>Lead magnet opt-in page + thank you page</li>
-          <li>Welcome email sequence &mdash; built &amp; connected to your email platform</li>
+          <li class="li-section">Design &amp; Brand</li>
+          <li>Professional photos sourced to match your brand</li>
+          <li>Your branding applied &mdash; or choose from our curated options</li>
+          <li>Mobile-responsive, fast-loading design</li>
+          <li class="li-section">Tech &amp; Setup</li>
+          <li>On-page SEO + AI search optimization</li>
+          <li>Scheduler embed, contact form, email list connection</li>
+          <li>Google Analytics + Search Console setup</li>
+          <li>Blog &mdash; set up and ready to publish (or we migrate your existing posts)</li>
+          <li>Welcome email sequence built &amp; connected to your email platform</li>
+          <li>Up to 3 revision rounds</li>
+          <li>Live in approximately 3 weeks</li>
         </ul>
         <div class="price-maint">
           <div class="price-maint-label">Monthly Maintenance</div>
           <div class="price-maint-amount">From $99/mo</div>
           <div class="price-maint-desc">Hosting, security, updates + 4 content edits/mo</div>
         </div>
-        <a href="[BOOKING LINK]" class="btn-enroll">Book a Free Call &rarr;</a>
-        <a href="[PURCHASE LINK]" class="price-secondary-link">Apply now &rarr;</a>
       </div>
 
     </div>
 
     <div class="pricing-below">
-      <p>Not sure which is right for you? That&rsquo;s exactly what the discovery call is for.</p>
+      <p>Not sure which package is right for you? That&rsquo;s exactly what the discovery call is for.</p>
       <a href="[BOOKING LINK]" class="btn-primary">Book a Free Call &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS (directly after pricing) -->
+<section class="addons">
+  <div class="addons-inner">
+    <div class="addons-eyebrow">Optional Add-Ons</div>
+    <h2>Want to go further?</h2>
+    <p class="addons-sub">A few optional additions &mdash; ask about these on your discovery call.</p>
+    <div class="addons-grid">
+      <div class="addon-card">
+        <span class="addon-emoji">🎨</span>
+        <h3>Brand Starter</h3>
+        <div class="addon-price">Ask on your call</div>
+        <p>Don&rsquo;t have a logo, color palette, or fonts yet? We&rsquo;ll create a cohesive brand foundation before we build your site.</p>
+      </div>
+      <div class="addon-card">
+        <span class="addon-emoji">📋</span>
+        <h3>Blog Migration</h3>
+        <div class="addon-price">Ask on your call</div>
+        <p>Moving from WordPress, Squarespace, or Wix? We&rsquo;ll migrate your existing posts so nothing gets left behind.</p>
+      </div>
+      <div class="addon-card">
+        <span class="addon-emoji">📣</span>
+        <h3>Ad Campaign Setup</h3>
+        <div class="addon-price">Ask on your call</div>
+        <p>Once your site and lead magnet are live, we can set up a $5/day Facebook/Instagram campaign to start driving traffic automatically.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -667,8 +740,8 @@ footer a { color: rgba(255,255,255,0.48); }
           <li>Your website is out of date, half-finished, or doesn&rsquo;t exist yet</li>
           <li>You know what you do &mdash; you just hate writing about yourself</li>
           <li>You want it done properly, not dragged out for months</li>
-          <li>You&rsquo;re willing to spend ~3 hours on a questionnaire and let us do the rest</li>
-          <li>You want ongoing support without having to manage anything tech</li>
+          <li>You&rsquo;re willing to spend ~2&ndash;3 hours on a questionnaire and let us do the rest</li>
+          <li>You want ongoing support without managing anything technical</li>
         </ul>
       </div>
       <div class="who-box who-no">
@@ -703,10 +776,10 @@ footer a { color: rgba(255,255,255,0.48); }
         </thead>
         <tbody>
           <tr>
-            <td>You write the copy</td>
-            <td><span class="ct-no">✓</span> &nbsp;You do it</td>
-            <td><span class="ct-no">✓</span> &nbsp;You do it</td>
-            <td class="col-us"><span class="ct-yes">✗</span> &nbsp;<span class="ct-strong">We do it</span></td>
+            <td>Copy &amp; writing</td>
+            <td><span class="ct-no">✗</span>&nbsp; You write it</td>
+            <td><span class="ct-no">✗</span>&nbsp; You write it</td>
+            <td class="col-us"><span class="ct-yes">✓</span>&nbsp; <span class="ct-strong">We write it</span></td>
           </tr>
           <tr>
             <td>Timeline</td>
@@ -721,10 +794,10 @@ footer a { color: rgba(255,255,255,0.48); }
             <td class="col-us"><span class="ct-yes">✓</span></td>
           </tr>
           <tr>
-            <td>Ongoing support included</td>
+            <td>Ongoing maintenance available</td>
             <td><span class="ct-no">✗</span></td>
             <td><span class="ct-no">✗</span></td>
-            <td class="col-us"><span class="ct-yes">✓</span></td>
+            <td class="col-us"><span class="ct-strong">From $45/mo</span></td>
           </tr>
           <tr>
             <td>Typical cost</td>
@@ -758,79 +831,50 @@ footer a { color: rgba(255,255,255,0.48); }
   </div>
 </section>
 
-<!-- ADD-ONS -->
-<section class="addons">
-  <div class="addons-inner">
-    <div class="section-label" style="text-align:center;color:var(--lime);">Optional Add-Ons</div>
-    <h2>Want to go further? &#128640;</h2>
-    <p class="addons-sub">A few optional additions &mdash; ask about these on your discovery call.</p>
-    <div class="addons-grid">
-      <div class="addon-card">
-        <span class="addon-emoji">&#127912;</span>
-        <h3>Brand Starter</h3>
-        <div class="addon-price">Ask on your call</div>
-        <p>Don&rsquo;t have a logo, color palette, or fonts yet? We&rsquo;ll create a cohesive brand foundation before we build your site.</p>
-      </div>
-      <div class="addon-card">
-        <span class="addon-emoji">&#128203;</span>
-        <h3>Blog Migration</h3>
-        <div class="addon-price">Ask on your call</div>
-        <p>Moving from WordPress, Squarespace, or Wix? We&rsquo;ll migrate your existing posts so nothing gets left behind.</p>
-      </div>
-      <div class="addon-card">
-        <span class="addon-emoji">&#128226;</span>
-        <h3>Ad Campaign Setup</h3>
-        <div class="addon-price">Ask on your call</div>
-        <p>Once your site and lead magnet are live, we can set up a $5/day Facebook/Instagram campaign to start driving traffic automatically.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
+<!-- FAQ (2 columns) -->
 <section class="faq" id="faq-section">
   <div class="faq-inner">
     <h2>Questions? Let&rsquo;s cover them.</h2>
-    <div class="faq-items">
+    <div class="faq-columns">
 
       <div class="faq-item">
         <div class="faq-q">What if I don&rsquo;t have a logo or branding?</div>
-        <div class="faq-a">No problem. As part of onboarding, you&rsquo;ll choose from our curated color palettes and font pairings, and we&rsquo;ll create a clean text-based logo using your business name. If you want something more custom, there&rsquo;s a Brand Starter add-on for that.</div>
+        <div class="faq-a">No problem. As part of onboarding, you&rsquo;ll choose from our curated color palettes and font pairings, and we&rsquo;ll create a clean text-based logo. If you want something more custom, there&rsquo;s a Brand Starter add-on for that.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Do I need to provide my own photos?</div>
-        <div class="faq-a">If you have headshots and brand photos you love, send them over. If not, we source professional stock photos that fit your niche, location, and brand. We&rsquo;ll let you approve the direction before we use them.</div>
+        <div class="faq-a">If you have headshots and brand photos you love, send them over. If not, we source professional stock photos that fit your niche, location, and brand. You&rsquo;ll approve the direction before we use them.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">What platform is the site built on?</div>
-        <div class="faq-a">Your site is built on a modern, custom-coded framework &mdash; not WordPress, not Squarespace, not a drag-and-drop builder. That means it&rsquo;s faster, more secure, and easier to maintain. You don&rsquo;t need to know anything about the tech &mdash; that&rsquo;s our job.</div>
+        <div class="faq-a">Your site is built on a modern, custom-coded framework &mdash; not WordPress, not Squarespace, not a drag-and-drop builder. That means it&rsquo;s faster, more secure, and easier to maintain. You don&rsquo;t need to know anything about the tech.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Do I need to be on a maintenance plan?</div>
-        <div class="faq-a">Yes &mdash; all sites include a monthly hosting and maintenance subscription. This covers your hosting, security updates, and a set number of content updates each month. It&rsquo;s what keeps your site running smoothly without you ever having to think about it.</div>
+        <div class="faq-a">Yes &mdash; all sites include a monthly hosting and maintenance subscription. This covers hosting, security updates, and a set number of content updates each month. It&rsquo;s what keeps your site running smoothly without you thinking about it.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">What counts as a content update?</div>
-        <div class="faq-a">Things like changing a service description, swapping a photo, updating your hours or pricing, or adding a new testimonial. Structural changes (adding a new page, redesigning a section) are handled separately.</div>
+        <div class="faq-a">Things like changing a service description, swapping a photo, updating pricing, or adding a new testimonial. Structural changes (adding a new page, redesigning a section) are handled separately.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">What if I want to make changes after launch?</div>
-        <div class="faq-a">Small updates are included in your monthly plan. For bigger changes, just ask &mdash; we&rsquo;ll let you know if it falls inside or outside your plan.</div>
+        <div class="faq-a">Small updates are included in your monthly plan. For bigger changes, just ask &mdash; we&rsquo;ll let you know if it falls inside or outside your plan and give you a quote if needed.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Do we need to meet on a call before you start?</div>
-        <div class="faq-a">Most of the process is handled through our questionnaire, which is designed to get us everything we need without scheduling back-and-forth. An optional 30-minute strategy call is available if you&rsquo;d like to talk through anything before we start.</div>
+        <div class="faq-a">Most of the process is handled through our questionnaire. An optional 30-minute strategy call is available if you&rsquo;d like to talk through anything first, but it&rsquo;s not required.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">How is this different from a custom website design?</div>
-        <div class="faq-a">Custom design means your designer builds something from scratch &mdash; typically 2&ndash;4 months and $5,000&ndash;$10,000+. Our process uses a proven template framework that&rsquo;s fully customized to your brand, copy, and photos. You get a polished, professional result at a fraction of the time and cost.</div>
+        <div class="faq-a">Custom design starts from scratch &mdash; typically 2&ndash;4 months and $5,000&ndash;$10,000+. Our process uses a proven template framework fully customized to your brand, copy, and photos. Polished, professional result at a fraction of the time and cost.</div>
       </div>
 
       <div class="faq-item">
