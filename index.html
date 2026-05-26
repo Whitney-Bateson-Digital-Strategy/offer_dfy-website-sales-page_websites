@@ -24,32 +24,35 @@
 html { font-family: 'Nunito Sans', sans-serif; color: var(--text); font-size: 17px; line-height: 1.6; overflow-x: hidden; }
 h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; line-height: 1.25; }
 
-/* ── MARQUEE (top bar) ── */
-.marquee-bar { background: var(--teal); color: var(--white); padding: 10px 0; overflow: hidden; white-space: nowrap; }
-.marquee-track { display: inline-block; animation: marquee 45s linear infinite; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
-.marquee-track span { margin: 0 28px; }
-.marquee-dot { color: var(--lime); }
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+/* ── ANNOUNCEMENT BAR (static) ── */
+.announce-bar {
+  background: var(--teal);
+  color: white;
+  text-align: center;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.announce-bar .announce-dot { color: var(--lime); margin: 0 10px; }
 
-/* ── TRUST TICKER (below hero) ── */
-.trust-ticker { background: var(--teal); padding: 12px 0; overflow: hidden; white-space: nowrap; border-top: 1px solid rgba(255,255,255,0.1); }
-.trust-ticker-track { display: inline-block; animation: marquee 38s linear infinite; font-size: 14px; letter-spacing: 0.06em; font-weight: 600; color: rgba(255,255,255,0.9); }
+/* ── TRUST TICKER (scrolling, below hero) ── */
+.trust-ticker { background: var(--teal); padding: 13px 0; overflow: hidden; white-space: nowrap; border-top: 1px solid rgba(255,255,255,0.1); }
+.trust-ticker-track { display: inline-block; animation: ticker 38s linear infinite; font-size: 15px; letter-spacing: 0.06em; font-weight: 600; color: rgba(255,255,255,0.9); }
 .trust-ticker-track span { margin: 0 10px; }
-.trust-diamond { color: var(--lime); font-size: 12px; margin: 0 8px; }
+.trust-diamond { color: var(--lime); font-size: 12px; margin: 0 10px; }
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* ── NAV ── */
 nav { background: var(--white); padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.07); }
 .nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--teal); text-decoration: none; font-style: italic; }
-.nav-links { display: flex; align-items: center; gap: 28px; }
-.nav-links a { font-size: 13px; color: var(--teal); text-decoration: none; letter-spacing: 0.04em; opacity: 0.7; transition: opacity 0.2s; }
-.nav-links a:hover { opacity: 1; }
 .nav-cta { background: var(--coral); color: white; border: none; padding: 10px 22px; border-radius: 50px; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,127,80,0.35); }
 
-/* ── BUTTONS ── */
-.btn-primary { display: inline-block; background: var(--coral); color: white; padding: 18px 40px; border-radius: 50px; font-family: 'Nunito Sans', sans-serif; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; border: none; transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
+/* ── BUTTONS (reduced padding) ── */
+.btn-primary { display: inline-block; background: var(--coral); color: white; padding: 13px 30px; border-radius: 50px; font-family: 'Nunito Sans', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; border: none; transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,127,80,0.4); }
-.btn-outline { display: inline-block; border: 2px solid var(--coral); color: var(--coral); padding: 14px 32px; border-radius: 50px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.2s; background: transparent; font-family: 'Nunito Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.06em; }
+.btn-outline { display: inline-block; border: 2px solid var(--coral); color: var(--coral); padding: 11px 24px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; background: transparent; font-family: 'Nunito Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.06em; }
 .btn-outline:hover { background: var(--coral); color: white; }
 .section-label { font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; color: var(--coral); margin-bottom: 14px; }
 
@@ -80,7 +83,6 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .hero h1 { font-size: clamp(34px, 4vw, 56px); color: var(--teal); margin-bottom: 24px; line-height: 1.18; }
 .hero h1 em { font-style: italic; color: var(--coral); }
 .hero-sub { font-size: 18px; color: #666; margin-bottom: 40px; line-height: 1.72; max-width: 460px; }
-.hero-fine { font-size: 13px; color: #bbb; margin-top: 14px; font-style: italic; }
 .hero-photo-wrap { position: relative; }
 .hero-photo-shadow {
   border-radius: 24px;
@@ -89,7 +91,7 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 }
 .hero-photo-shadow img { width: 100%; height: 580px; object-fit: cover; object-position: top center; display: block; }
 
-/* ── PAIN (2×2 grid cards) ── */
+/* ── PAIN (2×2 grid) ── */
 .pain-section { background: var(--white); padding: 96px 48px; }
 .pain-inner { max-width: 960px; margin: 0 auto; }
 .pain-section h2 { font-size: clamp(28px, 3.5vw, 44px); color: var(--teal); margin-bottom: 12px; max-width: 680px; }
@@ -120,10 +122,8 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .intro-eyebrow { display: inline-block; background: var(--coral); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 22px; border-radius: 50px; margin-bottom: 32px; }
 .introducing h2 { font-size: clamp(38px, 5.5vw, 70px); color: var(--teal); margin-bottom: 20px; line-height: 1.12; }
 .introducing h2 em { font-style: italic; color: var(--coral); }
-.introducing-body { font-size: 18px; color: #777; line-height: 1.75; max-width: 560px; margin: 0 auto 36px; }
-.introducing-divider { display: flex; align-items: center; gap: 18px; max-width: 340px; margin: 0 auto 44px; }
-.introducing-divider::before, .introducing-divider::after { content: ''; flex: 1; height: 1px; background: var(--cream); }
-.introducing-divider span { font-size: 12px; color: #ccc; font-style: italic; white-space: nowrap; }
+.introducing-body { font-size: 18px; color: #777; line-height: 1.75; max-width: 520px; margin: 0 auto 36px; }
+.intro-tier-line { font-size: 15px; font-weight: 700; color: #666; margin-bottom: 36px; letter-spacing: 0.02em; }
 
 /* ── OFFER OVERVIEW ── */
 .offer-overview { background: var(--white); padding: 96px 48px; border-top: 1px solid var(--cream); }
@@ -224,14 +224,12 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .price-tagline { font-size: 15px; font-style: italic; color: #aaa; margin-bottom: 20px; line-height: 1.6; }
 .price-includes { list-style: none; margin-bottom: 20px; display: flex; flex-direction: column; gap: 9px; }
 .price-includes li { font-size: 14px; padding-left: 24px; position: relative; color: var(--text); line-height: 1.5; }
-.price-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+.price-includes li::before { content: '&#10003;'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 .price-includes li.li-section { font-size: 10px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: #bbb; padding-left: 0; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--cream); }
 .price-includes li.li-section::before { display: none; }
-/* funnel callout box inside System card */
 .funnel-callout { background: linear-gradient(135deg, rgba(227,246,150,0.35) 0%, rgba(174,211,221,0.2) 100%); border: 1.5px solid rgba(2,82,93,0.15); border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
 .funnel-callout-title { font-family: 'Nunito Sans', sans-serif; font-weight: 700; font-size: 14px; color: var(--teal); margin-bottom: 8px; line-height: 1.35; }
 .funnel-callout p { font-size: 13px; color: #555; line-height: 1.7; margin: 0; }
-/* maintenance block */
 .price-maint { background: var(--light); border-radius: 12px; padding: 16px 18px; }
 .price-maint p { font-size: 13.5px; color: #666; line-height: 1.65; }
 .price-maint p strong { color: var(--teal); font-weight: 700; }
@@ -302,6 +300,17 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .testi-name { font-weight: 700; font-size: 15px; color: var(--teal); }
 .testi-cta { text-align: center; margin-top: 40px; }
 
+/* ── GETTING STARTED ── */
+.getting-started { background: var(--white); padding: 96px 48px; border-top: 1px solid var(--cream); }
+.getting-started-inner { max-width: 1060px; margin: 0 auto; }
+.getting-started h2 { font-size: clamp(26px, 3vw, 40px); text-align: center; margin-bottom: 10px; }
+.gs-sub { text-align: center; color: #888; font-size: 16px; margin-bottom: 52px; font-style: italic; }
+.gs-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.gs-step { background: var(--light); border-radius: 16px; padding: 32px 24px 28px; }
+.gs-num { width: 44px; height: 44px; background: var(--coral); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; margin-bottom: 18px; }
+.gs-step h4 { font-family: 'Nunito Sans', sans-serif; font-weight: 700; font-size: 15px; color: var(--teal); margin-bottom: 10px; line-height: 1.35; }
+.gs-step p { font-size: 13.5px; color: #777; line-height: 1.65; }
+
 /* ── FAQ (2-column) ── */
 .faq { background: var(--white); padding: 96px 48px; border-top: 1px solid var(--cream); }
 .faq-inner { max-width: 1060px; margin: 0 auto; }
@@ -338,17 +347,19 @@ footer a { color: rgba(255,255,255,0.48); }
   .hero-sub { max-width: 100%; }
   .about-inner { grid-template-columns: 1fr; }
   .about-photo { display: none; }
+  .gs-steps { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
   nav { padding: 14px 24px; }
-  .nav-links { display: none; }
   .pain-section, .transform-section, .introducing, .offer-overview, .process,
-  .about, .pricing, .addons, .who, .comparison, .testimonials, .faq, .final-cta { padding: 64px 24px; }
+  .about, .pricing, .addons, .who, .comparison, .testimonials,
+  .getting-started, .faq, .final-cta { padding: 64px 24px; }
   .pain-grid, .transform-grid, .who-grid, .faq-columns { grid-template-columns: 1fr; }
   .offer-grid { grid-template-columns: 1fr; }
   .process-cards { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
   .addons-grid { grid-template-columns: 1fr; }
+  .gs-steps { grid-template-columns: 1fr; }
   .testi-card { padding: 28px 24px; }
   footer { padding: 24px; }
 }
@@ -359,31 +370,17 @@ footer a { color: rgba(255,255,255,0.48); }
 </head>
 <body>
 
-<!-- MARQUEE (top announcement bar) -->
-<div class="marquee-bar">
-  <div class="marquee-track">
-    <span>New Service for Health &amp; Nutrition Practitioners</span><span class="marquee-dot">&#10022;</span>
-    <span>Limited Spots Available</span><span class="marquee-dot">&#10022;</span>
-    <span>Live in 3 Weeks</span><span class="marquee-dot">&#10022;</span>
-    <span>Copy Written For You</span><span class="marquee-dot">&#10022;</span>
-    <span>No Tech Skills Required</span><span class="marquee-dot">&#10022;</span>
-    <span>New Service for Health &amp; Nutrition Practitioners</span><span class="marquee-dot">&#10022;</span>
-    <span>Limited Spots Available</span><span class="marquee-dot">&#10022;</span>
-    <span>Live in 3 Weeks</span><span class="marquee-dot">&#10022;</span>
-    <span>Copy Written For You</span><span class="marquee-dot">&#10022;</span>
-    <span>No Tech Skills Required</span><span class="marquee-dot">&#10022;</span>
-  </div>
+<!-- ANNOUNCEMENT BAR (static) -->
+<div class="announce-bar">
+  New Service for Nutrition &amp; Health Practitioners
+  <span class="announce-dot">&#9679;</span>
+  Limited Spots Available &ndash; Now Booking for June 2026
 </div>
 
-<!-- NAV -->
+<!-- NAV (no anchor links) -->
 <!-- Replace "Whitney Bateson" text with <img> tag once you have the logo URL -->
 <nav>
   <a class="nav-logo" href="#top">Whitney Bateson</a>
-  <div class="nav-links">
-    <a href="#how-it-works">How It Works</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#faq-section">FAQ</a>
-  </div>
   <a class="nav-cta" href="[BOOKING LINK]">Book a Free Call</a>
 </nav>
 
@@ -392,10 +389,9 @@ footer a { color: rgba(255,255,255,0.48); }
   <div class="hero">
     <div class="hero-text">
       <div class="hero-pill">Done-For-You Website &bull; Health &amp; Nutrition Practitioners</div>
-      <h1>Your complete practice website &mdash; <em>written, designed, and launched</em> for you.</h1>
+      <h1>Your complete practice website &ndash; <em>written, designed, and launched</em> for you.</h1>
       <p class="hero-sub">No blank pages to fill. No page builders to wrestle with. You answer our questionnaire, we handle everything else. Live in about 3 weeks.</p>
       <a href="[BOOKING LINK]" class="btn-primary">Book a Free Call to Get Started &rarr;</a>
-      <p class="hero-fine">Not sure if this is right for you? That&rsquo;s what the call is for.</p>
     </div>
     <div class="hero-photo-wrap">
       <div class="hero-photo-shadow">
@@ -405,7 +401,7 @@ footer a { color: rgba(255,255,255,0.48); }
   </div>
 </div>
 
-<!-- TRUST TICKER (scrolling, matches top bar style) -->
+<!-- TRUST TICKER (scrolling) -->
 <div class="trust-ticker">
   <div class="trust-ticker-track">
     <span>Copy written for every page</span><span class="trust-diamond">&#10022;</span>
@@ -439,7 +435,7 @@ footer a { color: rgba(255,255,255,0.48); }
         <div class="pain-num">02</div>
         <div class="pain-card-content">
           <h4>Writing about yourself feels impossible</h4>
-          <p>You know exactly what your clients need &mdash; but translating that into clear, compelling website copy? That&rsquo;s a completely different skill set.</p>
+          <p>You know exactly what your clients need &ndash; but translating that into clear, compelling website copy? That&rsquo;s a completely different skill set.</p>
         </div>
       </div>
       <div class="pain-card">
@@ -458,7 +454,7 @@ footer a { color: rgba(255,255,255,0.48); }
       </div>
     </div>
     <div class="pain-closing">
-      The problem isn&rsquo;t that you don&rsquo;t care. It&rsquo;s that you&rsquo;re busy doing the actual work &mdash; which is the whole point.
+      The problem isn&rsquo;t that you don&rsquo;t care. It&rsquo;s that you&rsquo;re busy doing the actual work &ndash; which is the whole point.
     </div>
   </div>
 </section>
@@ -476,7 +472,7 @@ footer a { color: rgba(255,255,255,0.48); }
         <div class="transform-icon">🌿</div>
         <div>
           <h4>Referrals actually go somewhere</h4>
-          <p>You&rsquo;re doing the work &mdash; networking with doctor&rsquo;s offices, getting your name out there. But when a physician hands a patient three names, the one with a clear, professional website is the one who gets the call. Your site becomes your best referral partner.</p>
+          <p>You&rsquo;re doing the work &ndash; networking with doctor&rsquo;s offices, getting your name out there. But when a physician hands a patient three names, the one with a clear, professional website is the one who gets the call. Your site becomes your best referral partner.</p>
         </div>
       </div>
       <div class="transform-item">
@@ -490,14 +486,14 @@ footer a { color: rgba(255,255,255,0.48); }
         <div class="transform-icon">✨</div>
         <div>
           <h4>Wrong-fit inquiries stop wasting your time</h4>
-          <p>No more discovery calls from people who can&rsquo;t afford your rates, expect a quick meal plan, or are surprised you don&rsquo;t take insurance. A well-written site attracts the right people &mdash; and quietly filters out the ones who aren&rsquo;t a fit before they ever book.</p>
+          <p>No more discovery calls from people who can&rsquo;t afford your rates, expect a quick meal plan, or are surprised you don&rsquo;t take insurance. A well-written site attracts the right people &ndash; and quietly filters out the ones who aren&rsquo;t a fit before they ever book.</p>
         </div>
       </div>
       <div class="transform-item">
         <div class="transform-icon">🕐</div>
         <div>
           <h4>Updates happen without you relearning your own website</h4>
-          <p>You shouldn&rsquo;t have to remember how to log in, find the right page, and figure out how to change a button every time something needs updating. Send us a note &mdash; it&rsquo;s handled the next day. You focus on more important stuff.</p>
+          <p>You shouldn&rsquo;t have to remember how to log in, find the right page, and figure out how to change a button every time something needs updating. Send us a note &ndash; it&rsquo;s handled the next day. You focus on more important stuff.</p>
         </div>
       </div>
     </div>
@@ -508,9 +504,9 @@ footer a { color: rgba(255,255,255,0.48); }
 <section class="introducing">
   <div class="introducing-inner">
     <div class="intro-eyebrow">Introducing</div>
-    <h2>The Done-For-You<br><em>Website</em></h2>
-    <p class="introducing-body">For health and nutrition practitioners who are done waiting, done wrestling with tech, and ready for a website that actually brings clients in the door &mdash; without spending months or thousands to get there.</p>
-    <div class="introducing-divider"><span>Available in two tiers below</span></div>
+    <h2>The Complete <em>Done-For-You</em> Website</h2>
+    <p class="introducing-body">For health and nutrition practitioners who are done waiting, done wrestling with tech, and ready for a website that actually brings clients in the door &ndash; without spending months or thousands to get there.</p>
+    <p class="intro-tier-line">Two Options Available Based On Your Goals</p>
     <a href="#pricing" class="btn-outline">See Pricing &amp; Packages &darr;</a>
   </div>
 </section>
@@ -520,7 +516,7 @@ footer a { color: rgba(255,255,255,0.48); }
   <div class="offer-overview-inner">
     <div class="section-label">What You Get</div>
     <h2>A complete website, <em>written and built</em><br>for health practitioners.</h2>
-    <p class="intro-p">This isn&rsquo;t a template you fill in yourself. It&rsquo;s a professionally written, designed, and launched website &mdash; built specifically for the way health and nutrition practitioners talk about their work and find their clients.</p>
+    <p class="intro-p">This isn&rsquo;t a template you fill in yourself. It&rsquo;s a professionally written, designed, and launched website &ndash; built specifically for the way health and nutrition practitioners talk about their work and find their clients.</p>
     <div class="offer-grid">
       <div>
         <div class="browser-mockup">
@@ -550,13 +546,13 @@ footer a { color: rgba(255,255,255,0.48); }
       <div>
         <p style="font-size:17px;margin-bottom:16px;font-weight:700;color:var(--teal);">Every site includes:</p>
         <ul class="checklist">
-          <li><div class="check-icon">✓</div><span>Copy written for every page &mdash; you don&rsquo;t write a word</span></li>
-          <li><div class="check-icon">✓</div><span>Professional photos sourced and approved by you</span></li>
-          <li><div class="check-icon">✓</div><span>Your branding applied (or we build one from curated options)</span></li>
-          <li><div class="check-icon">✓</div><span>Mobile-responsive, fast-loading design</span></li>
-          <li><div class="check-icon">✓</div><span>On-page SEO + AI search optimization</span></li>
-          <li><div class="check-icon">✓</div><span>Scheduler embed, contact form, email list connection</span></li>
-          <li><div class="check-icon">✓</div><span>Google Analytics + Search Console setup</span></li>
+          <li><div class="check-icon">&#10003;</div><span>Copy written for every page &ndash; you don&rsquo;t write a word</span></li>
+          <li><div class="check-icon">&#10003;</div><span>Professional photos sourced and approved by you</span></li>
+          <li><div class="check-icon">&#10003;</div><span>Your branding applied (or we build one from curated options)</span></li>
+          <li><div class="check-icon">&#10003;</div><span>Mobile-responsive, fast-loading design</span></li>
+          <li><div class="check-icon">&#10003;</div><span>On-page SEO + AI search optimization</span></li>
+          <li><div class="check-icon">&#10003;</div><span>Scheduler embed, contact form, email list connection</span></li>
+          <li><div class="check-icon">&#10003;</div><span>Google Analytics + Search Console setup</span></li>
         </ul>
         <a href="[BOOKING LINK]" class="btn-outline" style="margin-top:28px;display:inline-block;">See pricing &amp; book a call &rarr;</a>
       </div>
@@ -592,7 +588,7 @@ footer a { color: rgba(255,255,255,0.48); }
         </div>
         <div class="proc-card-body">
           <p>We take everything you gave us and get to work: writing your copy, sourcing photos, customizing the design, and building every page. You won&rsquo;t hear much from us.</p>
-          <p><em>That&rsquo;s intentional. This is the week the magic happens.</em></p>
+          <p><em style="color:#aaa;">That&rsquo;s intentional. This is the week the magic happens.</em></p>
         </div>
       </div>
       <div class="proc-card">
@@ -603,7 +599,7 @@ footer a { color: rgba(255,255,255,0.48); }
         </div>
         <div class="proc-card-body">
           <p>We share a staging link and you give us your feedback. We handle the revisions and launch your site.</p>
-          <p>From here, your monthly maintenance plan keeps everything running, secure, and up to date &mdash; without you ever having to log in.</p>
+          <p>From here, your monthly maintenance plan keeps everything running, secure, and up to date &ndash; without you ever having to log in.</p>
         </div>
       </div>
     </div>
@@ -619,10 +615,10 @@ footer a { color: rgba(255,255,255,0.48); }
     <div class="about-text">
       <div class="section-label">Why I Built This</div>
       <h2>I&rsquo;ve spent 8 years helping practitioners get their websites done. Here&rsquo;s what I kept seeing.</h2>
-      <p>After working with 150+ health and nutrition practitioners through my done-with-you website program &mdash; and before that, building custom sites &mdash; two things became clear.</p>
-      <p>First: the copy was always the bottleneck. Practitioners knew exactly how to help their clients &mdash; but sitting down to write about themselves? That&rsquo;s where everything stalled. They&rsquo;d start, get stuck, and the website would sit unfinished for far too long.</p>
-      <p>Second: the tools have changed. We no longer need to wrestle with clunky page builders or wait months for a custom build. Done right, a polished, professional website can come together in weeks &mdash; not as a compromise, but as a genuinely better product.</p>
-      <p>So I built this service for the practitioner who needs their website done &mdash; not someday, but now. Someone who wants to hand it off completely, stay out of the backend, and focus on what they&rsquo;re actually great at.</p>
+      <p>After working with 150+ health and nutrition practitioners through my done-with-you website program &ndash; and before that, building custom sites &ndash; two things became clear.</p>
+      <p>First: the copy was always the bottleneck. Practitioners knew exactly how to help their clients &ndash; but sitting down to write about themselves? That&rsquo;s where everything stalled. They&rsquo;d start, get stuck, and the website would sit unfinished for far too long.</p>
+      <p>Second: the tools have changed. We no longer need to wrestle with clunky page builders or wait months for a custom build. Done right, a polished, professional website can come together in weeks &ndash; not as a compromise, but as a genuinely better product.</p>
+      <p>So I built this service for the practitioner who needs their website done &ndash; not someday, but now. Someone who wants to hand it off completely, stay out of the backend, and focus on what they&rsquo;re actually great at.</p>
       <p><em>You bring your subject matter expertise. We bring it to life online.</em></p>
       <div class="about-stats">
         <div>
@@ -647,7 +643,7 @@ footer a { color: rgba(255,255,255,0.48); }
   <div class="pricing-inner">
     <div class="pricing-label">Investment</div>
     <h2>Two packages. Both fully done for you.</h2>
-    <p class="pricing-sub">The difference is scope &mdash; not how much effort you put in. Either way, that&rsquo;s the same: not much.</p>
+    <p class="pricing-sub">The difference is scope &ndash; not how much effort you put in. Either way, that&rsquo;s the same: not much.</p>
 
     <!-- VALUE STACK -->
     <div class="value-stack">
@@ -683,7 +679,7 @@ footer a { color: rgba(255,255,255,0.48); }
         </li>
       </ul>
       <div class="vs-callout">
-        Our packages start at $1,997 &mdash; built by a team that has worked <strong>exclusively with health and nutrition practitioners</strong> for over 8 years.
+        Our packages start at $1,997 &ndash; built by a team that has worked <strong>exclusively with health and nutrition practitioners</strong> for over 8 years.
       </div>
     </div>
 
@@ -699,10 +695,10 @@ footer a { color: rgba(255,255,255,0.48); }
         <ul class="price-includes">
           <li class="li-section">Pages &amp; Copy</li>
           <li>3 pages: Home, About, Work With Me</li>
-          <li>Every page fully copywritten &mdash; you don&rsquo;t write a word</li>
+          <li>Every page fully copywritten &ndash; you don&rsquo;t write a word</li>
           <li class="li-section">Design &amp; Brand</li>
           <li>Professional photos sourced to match your brand</li>
-          <li>Your branding applied &mdash; or choose from our curated options</li>
+          <li>Your branding applied &ndash; or choose from our curated options</li>
           <li>Mobile-responsive, fast-loading design</li>
           <li class="li-section">Tech &amp; Setup</li>
           <li>On-page SEO + AI search optimization</li>
@@ -712,7 +708,7 @@ footer a { color: rgba(255,255,255,0.48); }
           <li>Live in about 3 weeks</li>
         </ul>
         <div class="price-maint">
-          <p><strong>After launch:</strong> Monthly maintenance plans from $45/mo &mdash; hosting, security, and updates handled for you. Ask about plan options on your call.</p>
+          <p><strong>After launch:</strong> Monthly maintenance plans from $45/mo &ndash; hosting, security, and updates handled for you. Ask about plan options on your call.</p>
         </div>
       </div>
 
@@ -723,31 +719,33 @@ footer a { color: rgba(255,255,255,0.48); }
         <h3>System</h3>
         <div class="price-amount">$4,497</div>
         <hr class="price-divider">
-        <p class="price-tagline">For practitioners who want a complete online presence &mdash; full site, blog, and a built-in lead generation funnel that starts building your email list from day one.</p>
+        <p class="price-tagline">For practitioners who want a complete online presence &ndash; full site, blog, and a built-in lead generation funnel that starts building your email list from day one.</p>
         <ul class="price-includes">
           <li class="li-section">Pages &amp; Copy</li>
           <li>Up to 7 pages: Home, About, Work With Me, Services, Resources, Contact + more</li>
-          <li>Every page fully copywritten &mdash; you don&rsquo;t write a word</li>
-          <li>Lead magnet opt-in page + thank you page</li>
+          <li>Every page fully copywritten &ndash; you don&rsquo;t write a word</li>
+          <li>Blog &ndash; set up and ready to publish</li>
           <li class="li-section">Design &amp; Brand</li>
           <li>Professional photos sourced to match your brand</li>
-          <li>Your branding applied &mdash; or choose from our curated options</li>
+          <li>Your branding applied &ndash; or choose from our curated options</li>
           <li>Mobile-responsive, fast-loading design</li>
           <li class="li-section">Tech &amp; Setup</li>
           <li>On-page SEO + AI search optimization</li>
           <li>Scheduler embed, contact form, email list connection</li>
           <li>Google Analytics + Search Console setup</li>
-          <li>Blog &mdash; set up and ready to publish (or we migrate your existing posts)</li>
-          <li>Welcome email sequence built &amp; connected to your email platform</li>
           <li>Up to 3 revision rounds</li>
           <li>Live in about 3 weeks</li>
+          <li class="li-section">Lead Generation Funnel</li>
+          <li>Custom lead magnet &ndash; created for you</li>
+          <li>Opt-in page + thank you page</li>
+          <li>5-email welcome sequence built &amp; connected to your email platform</li>
         </ul>
         <div class="funnel-callout">
           <div class="funnel-callout-title">The funnel alone is worth the upgrade.</div>
-          <p>Most website projects stop at &ldquo;looks good.&rdquo; The System package goes further &mdash; we build and connect a complete lead generation funnel: custom lead magnet, opt-in page, thank you page, and a 5-email welcome sequence wired into your email platform. From the moment your site goes live, it&rsquo;s actively collecting leads and warming them up to book with you. If even one new client comes through that funnel, the System package pays for itself.</p>
+          <p>Most website projects stop at &ldquo;looks good.&rdquo; The System package keeps going &ndash; your complete lead generation funnel is built, connected, and ready to collect leads and warm them up to book from day one.</p>
         </div>
         <div class="price-maint">
-          <p><strong>After launch:</strong> Monthly maintenance plans from $45/mo &mdash; hosting, security, and updates handled for you. Ask about plan options on your call.</p>
+          <p><strong>After launch:</strong> Monthly maintenance plans from $45/mo &ndash; hosting, security, and updates handled for you. Ask about plan options on your call.</p>
         </div>
       </div>
 
@@ -765,7 +763,7 @@ footer a { color: rgba(255,255,255,0.48); }
   <div class="addons-inner">
     <div class="addons-eyebrow">Optional Add-Ons</div>
     <h2>Want to go further?</h2>
-    <p class="addons-sub">A few optional additions &mdash; ask about these on your discovery call.</p>
+    <p class="addons-sub">A few optional additions &ndash; ask about these on your discovery call.</p>
     <div class="addons-grid">
       <div class="addon-card">
         <span class="addon-emoji">🎨</span>
@@ -799,7 +797,7 @@ footer a { color: rgba(255,255,255,0.48); }
         <ul class="who-list">
           <li>You&rsquo;re a health or nutrition practitioner who needs a professional web presence</li>
           <li>Your website is out of date, half-finished, or doesn&rsquo;t exist yet</li>
-          <li>You know what you do &mdash; you just hate writing about yourself</li>
+          <li>You know what you do &ndash; you just hate writing about yourself</li>
           <li>You want it done properly, not dragged out for months</li>
           <li>You&rsquo;re willing to spend ~2&ndash;3 hours on a questionnaire and let us do the rest</li>
           <li>You want updates handled without managing anything technical</li>
@@ -832,39 +830,39 @@ footer a { color: rgba(255,255,255,0.48); }
             <th></th>
             <th>DIY <span style="font-weight:400;">(Squarespace / Wix)</span></th>
             <th>Traditional Designer</th>
-            <th class="col-us">Whitney Bateson Digital</th>
+            <th class="col-us">Our Done-for-You Websites</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Copy &amp; writing</td>
-            <td><span class="ct-no">✗</span>&nbsp; You write it</td>
-            <td><span class="ct-no">✗</span>&nbsp; You write it</td>
-            <td class="col-us"><span class="ct-yes">✓</span>&nbsp; <span class="ct-strong">We write it</span></td>
+            <td><span class="ct-no">&#10007;</span>&nbsp; You write it</td>
+            <td><span class="ct-no">&#10007;</span>&nbsp; You write it</td>
+            <td class="col-us"><span class="ct-yes">&#10003;</span>&nbsp; <span class="ct-strong">We write it</span></td>
           </tr>
           <tr>
             <td>Timeline</td>
             <td style="color:#bbb;">Whenever you get to it</td>
-            <td style="color:#bbb;">6–12 weeks</td>
+            <td style="color:#bbb;">6&ndash;12 weeks</td>
             <td class="col-us"><span class="ct-strong">~3 weeks</span></td>
           </tr>
           <tr>
             <td>Built for health practitioners</td>
-            <td><span class="ct-no">✗</span></td>
+            <td><span class="ct-no">&#10007;</span></td>
             <td style="color:#bbb;">Rarely</td>
-            <td class="col-us"><span class="ct-yes">✓</span></td>
+            <td class="col-us"><span class="ct-yes">&#10003;</span></td>
           </tr>
           <tr>
-            <td>Ongoing maintenance available</td>
-            <td><span class="ct-no">✗</span></td>
-            <td><span class="ct-no">✗</span></td>
-            <td class="col-us"><span class="ct-strong">From $45/mo</span></td>
+            <td>Edits and updates</td>
+            <td style="color:#888;">All on you</td>
+            <td style="color:#888;">Figure it out or pay $$</td>
+            <td class="col-us"><span class="ct-strong">From $45/mo &ndash; we handle it</span></td>
           </tr>
           <tr>
             <td>Typical cost</td>
-            <td style="color:#bbb;">$200–400/yr</td>
-            <td style="color:#bbb;">$4,000–10,000+</td>
-            <td class="col-us"><span class="ct-strong">From $1,997 + monthly</span></td>
+            <td style="color:#bbb;">$200&ndash;400/yr + weeks of your own time</td>
+            <td style="color:#bbb;">$4,000&ndash;10,000+</td>
+            <td class="col-us"><span class="ct-strong">From $1,997</span></td>
           </tr>
         </tbody>
       </table>
@@ -877,9 +875,9 @@ footer a { color: rgba(255,255,255,0.48); }
   <div class="testimonials-inner">
     <div class="section-label" style="text-align:center;">What Practitioners Are Saying</div>
     <h2>Real results from real practitioners</h2>
-    <p class="testi-sub">Placeholder &mdash; swap in your real testimonials before launch.</p>
+    <p class="testi-sub">Placeholder &ndash; swap in your real testimonials before launch.</p>
     <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
+      <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       <p class="testi-quote">I&rsquo;d had the same website for four years and kept saying I&rsquo;d redo it next month. Whitney&rsquo;s team wrote everything, sourced photos that actually looked like my practice, and launched it in three weeks. I&rsquo;ve already had two new inquiry calls.</p>
       <div class="testi-author">
         <div class="testi-rule"></div>
@@ -888,6 +886,37 @@ footer a { color: rgba(255,255,255,0.48); }
     </div>
     <div class="testi-cta">
       <a href="[BOOKING LINK]" class="btn-primary">Book a free call &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- GETTING STARTED -->
+<section class="getting-started">
+  <div class="getting-started-inner">
+    <div class="section-label" style="text-align:center;">Next Steps</div>
+    <h2 style="text-align:center;">Here&rsquo;s what it looks like to get started</h2>
+    <p class="gs-sub">From your first call to a live, working website &ndash; four simple steps.</p>
+    <div class="gs-steps">
+      <div class="gs-step">
+        <div class="gs-num">1</div>
+        <h4>Book a quick call</h4>
+        <p>We&rsquo;ll make sure we&rsquo;re a good fit and answer any remaining questions before you commit to anything.</p>
+      </div>
+      <div class="gs-step">
+        <div class="gs-num">2</div>
+        <h4>Pay your deposit, sign your contract, pick your start date</h4>
+        <p>Spots are limited and booked in advance. Once you&rsquo;re confirmed, your start date is locked in.</p>
+      </div>
+      <div class="gs-step">
+        <div class="gs-num">3</div>
+        <h4>Access your onboarding area</h4>
+        <p>You&rsquo;ll receive a guided onboarding experience that walks you through providing everything we need to build your site &ndash; no back-and-forth required.</p>
+      </div>
+      <div class="gs-step">
+        <div class="gs-num">4</div>
+        <h4>Launch + 7-day support window, then ongoing</h4>
+        <p>After launch you have 7 days for small final tweaks or questions. Then you move to a support plan &ndash; send us a request any time you need an edit and we&rsquo;ll get right on it.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -910,12 +939,12 @@ footer a { color: rgba(255,255,255,0.48); }
 
       <div class="faq-item">
         <div class="faq-q">What platform is the site built on?</div>
-        <div class="faq-a">Your site is built on a modern, custom-coded framework &mdash; not WordPress, not Squarespace, not a drag-and-drop builder. That means it&rsquo;s faster, more secure, and easier to maintain. You don&rsquo;t need to know anything about the tech.</div>
+        <div class="faq-a">Your site is built on a modern, custom-coded framework &ndash; not WordPress, not Squarespace, not a drag-and-drop builder. That means it&rsquo;s faster, more secure, and easier to maintain. You don&rsquo;t need to know anything about the tech.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Do I need to be on a maintenance plan?</div>
-        <div class="faq-a">Yes &mdash; all sites include a monthly hosting and maintenance subscription. This covers hosting, security updates, and a set number of content updates each month. It&rsquo;s what keeps your site running smoothly without you thinking about it.</div>
+        <div class="faq-a">Yes &ndash; all sites include a monthly hosting and maintenance subscription. This covers hosting, security updates, and a set number of content updates each month. It&rsquo;s what keeps your site running smoothly without you thinking about it.</div>
       </div>
 
       <div class="faq-item">
@@ -925,7 +954,7 @@ footer a { color: rgba(255,255,255,0.48); }
 
       <div class="faq-item">
         <div class="faq-q">What if I want to make changes after launch?</div>
-        <div class="faq-a">Small updates are included in your monthly plan. For bigger changes, just ask &mdash; we&rsquo;ll let you know if it falls inside or outside your plan and give you a quote if needed.</div>
+        <div class="faq-a">Small updates are included in your monthly plan. For bigger changes, just ask &ndash; we&rsquo;ll let you know if it falls inside or outside your plan and give you a quote if needed.</div>
       </div>
 
       <div class="faq-item">
@@ -935,12 +964,12 @@ footer a { color: rgba(255,255,255,0.48); }
 
       <div class="faq-item">
         <div class="faq-q">How is this different from a custom website design?</div>
-        <div class="faq-a">Custom design starts from scratch &mdash; typically 2&ndash;4 months and $5,000&ndash;$10,000+. Our process uses a proven template framework fully customized to your brand, copy, and photos. Polished, professional result at a fraction of the time and cost.</div>
+        <div class="faq-a">Custom design starts from scratch &ndash; typically 2&ndash;4 months and $5,000&ndash;$10,000+. Our process uses a proven template framework fully customized to your brand, copy, and photos. Polished, professional result at a fraction of the time and cost.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">What if I&rsquo;m not ready to commit yet?</div>
-        <div class="faq-a">Book the free call anyway. There&rsquo;s no obligation &mdash; it&rsquo;s a 20-minute conversation to figure out if this is the right fit and the right timing for you.</div>
+        <div class="faq-a">Book the free call anyway. There&rsquo;s no obligation &ndash; it&rsquo;s a 20-minute conversation to figure out if this is the right fit and the right timing for you.</div>
       </div>
 
     </div>
@@ -951,8 +980,8 @@ footer a { color: rgba(255,255,255,0.48); }
 <section class="final-cta">
   <div class="final-cta-inner">
     <h2>Ready to stop <em>putting it off?</em></h2>
-    <p>Your website should be working for you &mdash; bringing in new clients, showing up in search, and telling your story clearly. Not sitting half-finished on your to-do list. Book a free 20-minute call and we&rsquo;ll figure out which option makes sense for you.</p>
-    <a href="[BOOKING LINK]" class="btn-primary" style="font-size:18px;padding:20px 48px;">Book Your Free Call &rarr;</a>
+    <p>Your website should be working for you &ndash; bringing in new clients, showing up in search, and telling your story clearly. Not sitting half-finished on your to-do list. Book a free 20-minute call and we&rsquo;ll figure out which option makes sense for you.</p>
+    <a href="[BOOKING LINK]" class="btn-primary" style="padding:16px 44px;font-size:16px;">Book Your Free Call &rarr;</a>
     <p class="fine-print">Have a question first? Email us at <a href="mailto:[EMAIL ADDRESS]">[EMAIL ADDRESS]</a></p>
   </div>
 </section>
