@@ -131,24 +131,23 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .offer-overview h2 { font-size: clamp(28px, 3.5vw, 46px); color: var(--teal); margin-bottom: 16px; line-height: 1.25; }
 .offer-overview h2 em { font-style: italic; }
 .offer-overview .intro-p { font-size: 17px; line-height: 1.75; color: #666; max-width: 680px; margin-bottom: 52px; }
-.offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
-.browser-mockup { background: white; border-radius: 14px; box-shadow: 0 10px 48px rgba(0,0,0,0.12); overflow: hidden; border: 1px solid #eee; }
-.browser-chrome { background: #f0f0f0; border-bottom: 1px solid #e0e0e0; padding: 10px 16px; display: flex; align-items: center; gap: 10px; }
-.browser-dots { display: flex; gap: 6px; }
-.b-dot { width: 11px; height: 11px; border-radius: 50%; }
-.b-dot:nth-child(1) { background: #ff5f57; }
-.b-dot:nth-child(2) { background: #febc2e; }
-.b-dot:nth-child(3) { background: #28c840; }
-.browser-url { flex: 1; background: white; border: 1px solid #e0e0e0; border-radius: 6px; padding: 5px 12px; font-size: 12px; color: #999; font-family: monospace; }
-.browser-body { padding: 20px; }
-.mock-nav-bar { height: 26px; background: var(--teal); border-radius: 6px; margin-bottom: 14px; }
-.mock-hero-block { height: 110px; background: linear-gradient(120deg, var(--cream) 0%, var(--sky) 100%); border-radius: 8px; margin-bottom: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; }
-.mock-line { border-radius: 4px; background: var(--teal); opacity: 0.5; }
-.mock-btn-pill { width: 72px; height: 20px; background: var(--coral); border-radius: 100px; opacity: 0.85; }
-.mock-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-.mock-card { height: 52px; background: var(--cream); border-radius: 6px; }
-.mock-footer-bar { height: 20px; background: var(--teal); border-radius: 4px; opacity: 0.35; }
-.mock-caption { text-align: center; font-size: 12px; color: #bbb; margin-top: 10px; font-style: italic; }
+.offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+/* Floating 3-image mockup composition */
+.mockup-scene { position: relative; height: 420px; margin-bottom: 20px; }
+.mk-item { position: absolute; border-radius: 14px; overflow: hidden; box-shadow: 0 16px 44px rgba(0,0,0,0.13); will-change: transform, translate; }
+/* Desktop: left column, cropped tall screenshot */
+.mk-desktop { width: 62%; left: 0; top: 0; height: 100%; z-index: 1; animation: mkfloat-a 6.4s ease-in-out infinite; }
+.mk-desktop img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+/* Mobile phone: right side, natural height, front layer */
+.mk-mobile { width: 34%; right: 0; bottom: 0; z-index: 3; animation: mkfloat-c 7.1s ease-in-out infinite; animation-delay: -4.3s; }
+.mk-mobile img { width: 100%; display: block; }
+/* Scores card: floats across the bottom-center, highest z */
+.mk-scores { width: 70%; left: 50%; transform: translateX(-50%); bottom: -14px; z-index: 4; border-radius: 12px; box-shadow: 0 8px 28px rgba(0,0,0,0.11); animation: mkfloat-b 5.2s ease-in-out infinite; animation-delay: -2.1s; }
+.mk-scores img { width: 100%; display: block; }
+@keyframes mkfloat-a { 0%,100% { transform: translateY(0px);  } 50% { transform: translateY(-9px);  } }
+@keyframes mkfloat-b { 0%,100% { transform: translateX(-50%) translateY(0px);  } 50% { transform: translateX(-50%) translateY(-12px); } }
+@keyframes mkfloat-c { 0%,100% { transform: translateY(0px);  } 50% { transform: translateY(-7px);  } }
+.mock-caption { text-align: center; font-size: 12px; color: #bbb; margin-top: 32px; font-style: italic; }
 .checklist { list-style: none; }
 .checklist li { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 16px; line-height: 1.45; }
 .checklist li:last-child { border-bottom: none; }
@@ -356,6 +355,10 @@ footer a { color: rgba(255,255,255,0.48); }
   .getting-started, .faq, .final-cta { padding: 64px 24px; }
   .pain-grid, .transform-grid, .who-grid, .faq-columns { grid-template-columns: 1fr; }
   .offer-grid { grid-template-columns: 1fr; }
+  .mockup-scene { height: 300px; }
+  .mk-desktop { width: 60%; }
+  .mk-mobile  { width: 34%; }
+  .mk-scores  { width: 74%; }
   .process-cards { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
   .addons-grid { grid-template-columns: 1fr; }
@@ -519,26 +522,15 @@ footer a { color: rgba(255,255,255,0.48); }
     <p class="intro-p">This isn&rsquo;t a template you fill in yourself. It&rsquo;s a professionally written, designed, and launched website &ndash; built specifically for the way health and nutrition practitioners talk about their work and find their clients.</p>
     <div class="offer-grid">
       <div>
-        <div class="browser-mockup">
-          <div class="browser-chrome">
-            <div class="browser-dots">
-              <div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div>
-            </div>
-            <div class="browser-url">yourpractice.com</div>
+        <div class="mockup-scene">
+          <div class="mk-item mk-desktop">
+            <img src="images/mockup-desktop.png" alt="Example DFY website on desktop" loading="lazy">
           </div>
-          <div class="browser-body">
-            <div class="mock-nav-bar"></div>
-            <div class="mock-hero-block">
-              <div class="mock-line" style="width:65%;height:13px;"></div>
-              <div class="mock-line" style="width:46%;height:8px;"></div>
-              <div class="mock-btn-pill"></div>
-            </div>
-            <div class="mock-cards">
-              <div class="mock-card"></div>
-              <div class="mock-card"></div>
-              <div class="mock-card"></div>
-            </div>
-            <div class="mock-footer-bar"></div>
+          <div class="mk-item mk-mobile">
+            <img src="images/mockup-mobile.png" alt="Example DFY website on mobile" loading="lazy">
+          </div>
+          <div class="mk-item mk-scores">
+            <img src="images/mockup-scores.png" alt="Lighthouse scores: 96 Performance, 96 Accessibility, 100 Best Practices, 92 SEO" loading="lazy">
           </div>
         </div>
         <p class="mock-caption">Built to your brand, your voice, your practice.</p>
@@ -1007,6 +999,23 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
     if (!isOpen) { a.classList.add('open'); q.classList.add('open'); }
   });
 });
+
+// Mockup scene scroll parallax (translate property stacks on top of CSS animation transform)
+(function() {
+  var scene = document.querySelector('.mockup-scene');
+  if (!scene) return;
+  var desktop = scene.querySelector('.mk-desktop');
+  var mobile  = scene.querySelector('.mk-mobile');
+  var scores  = scene.querySelector('.mk-scores');
+  function tick() {
+    var mid = scene.getBoundingClientRect().top + scene.offsetHeight * 0.5 - window.innerHeight * 0.5;
+    if (desktop) desktop.style.translate = '0 ' + (mid * 0.03) + 'px';
+    if (mobile)  mobile.style.translate  = '0 ' + (mid * 0.05) + 'px';
+    if (scores)  scores.style.translate  = '-50% ' + (mid * 0.07) + 'px';
+  }
+  window.addEventListener('scroll', tick, {passive: true});
+  tick();
+})();
 
 // CTA heading cycling text
 (function() {
