@@ -136,7 +136,7 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .mockup-scene { position: relative; height: 460px; margin-bottom: 20px; }
 .mk-item { position: absolute; border-radius: 0; overflow: hidden; will-change: translate; }
 /* Desktop: larger, left-anchored, cropped to scene height */
-.mk-desktop { width: 76%; left: 0; top: 0; height: 100%; z-index: 1; }
+.mk-desktop { width: 82%; left: 0; top: 0; height: 100%; z-index: 1; }
 .mk-desktop img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
 /* Mobile phone: overlaps on top of desktop, right portion */
 .mk-mobile { width: 34%; left: 54%; top: 20px; z-index: 3; }
@@ -1007,9 +1007,9 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
   var scores  = scene.querySelector('.mk-scores');
   function tick() {
     var mid = scene.getBoundingClientRect().top + scene.offsetHeight * 0.5 - window.innerHeight * 0.5;
-    if (desktop) desktop.style.translate = '0 ' + (mid * 0.025) + 'px';
-    if (mobile)  mobile.style.translate  = '0 ' + (mid * 0.05)  + 'px';
-    if (scores)  scores.style.translate  = '0 ' + (mid * 0.07)  + 'px';
+    if (desktop) desktop.style.translate = '0 ' + (mid * 0.05)  + 'px';
+    if (mobile)  mobile.style.translate  = '0 ' + (mid * 0.10)  + 'px';
+    if (scores)  scores.style.translate  = '0 ' + (mid * 0.14)  + 'px';
   }
   window.addEventListener('scroll', tick, {passive: true});
   tick();
