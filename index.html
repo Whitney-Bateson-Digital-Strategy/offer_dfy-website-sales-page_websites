@@ -159,11 +159,11 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 @keyframes intro-drift-a { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(50px,35px) scale(1.18); } }
 @keyframes intro-drift-b { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-40px,-30px) scale(1.12); } }
 .introducing-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
-.intro-eyebrow { background: var(--lime); color: var(--teal); }
-.introducing h2 { color: white; }
-.introducing h2 em { color: var(--lime); }
-.introducing-body { color: rgba(255,255,255,0.76); }
-.intro-tier-line { color: rgba(255,255,255,0.5); }
+.intro-eyebrow { display: inline-block; background: var(--lime); color: var(--teal); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 22px; border-radius: 50px; margin-bottom: 32px; }
+.introducing h2 { font-size: clamp(38px, 5.5vw, 70px); color: white; margin-bottom: 20px; line-height: 1.12; }
+.introducing h2 em { font-style: italic; color: var(--lime); }
+.introducing-body { font-size: 18px; color: rgba(255,255,255,0.76); line-height: 1.75; max-width: 520px; margin: 0 auto 36px; }
+.intro-tier-line { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.5); margin-bottom: 36px; letter-spacing: 0.02em; }
 /* White outline button on teal */
 .introducing .btn-outline {
   border-color: rgba(255,255,255,0.7);
@@ -1125,7 +1125,7 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
     dots[idx].classList.add('active');
   }
   dots.forEach(function(d, i) { d.addEventListener('click', function() { goTo(i); }); });
-  setInterval(function() { goTo((idx + 1) % slides.length); }, 4500);
+  setInterval(function() { goTo((idx + 1) % slides.length); }, 7000);
 })();
 
 // Mockup scene scroll parallax — each layer moves at a different rate for depth
