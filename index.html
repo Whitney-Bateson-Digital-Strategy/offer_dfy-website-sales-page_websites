@@ -127,14 +127,64 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .transform-item h4 { font-family: 'Nunito Sans', sans-serif; font-weight: 700; font-size: 15px; color: var(--teal); margin-bottom: 6px; line-height: 1.35; }
 .transform-item p { font-size: 14px; color: #777; line-height: 1.65; }
 
-/* ── INTRODUCING ── */
-.introducing { background: var(--white); padding: 112px 48px; text-align: center; border-top: 1px solid var(--cream); }
-.introducing-inner { max-width: 680px; margin: 0 auto; }
-.intro-eyebrow { display: inline-block; background: var(--coral); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 22px; border-radius: 50px; margin-bottom: 32px; }
-.introducing h2 { font-size: clamp(38px, 5.5vw, 70px); color: var(--teal); margin-bottom: 20px; line-height: 1.12; }
-.introducing h2 em { font-style: italic; color: var(--coral); }
-.introducing-body { font-size: 18px; color: #777; line-height: 1.75; max-width: 520px; margin: 0 auto 36px; }
-.intro-tier-line { font-size: 15px; font-weight: 700; color: #666; margin-bottom: 36px; letter-spacing: 0.02em; }
+/* ── INTRODUCING (teal dark) ── */
+.introducing {
+  background: var(--teal);
+  padding: 112px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+/* Drifting background glows */
+.introducing::before {
+  content: '';
+  position: absolute;
+  width: 680px; height: 680px;
+  background: radial-gradient(circle, rgba(227,246,150,0.13) 0%, transparent 65%);
+  top: -200px; left: -80px;
+  border-radius: 50%;
+  animation: intro-drift-a 9s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.introducing::after {
+  content: '';
+  position: absolute;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(255,127,80,0.09) 0%, transparent 65%);
+  bottom: -160px; right: -60px;
+  border-radius: 50%;
+  animation: intro-drift-b 11s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes intro-drift-a { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(50px,35px) scale(1.18); } }
+@keyframes intro-drift-b { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-40px,-30px) scale(1.12); } }
+.introducing-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+.intro-eyebrow { background: var(--lime); color: var(--teal); }
+.introducing h2 { color: white; }
+.introducing h2 em { color: var(--lime); }
+.introducing-body { color: rgba(255,255,255,0.76); }
+.intro-tier-line { color: rgba(255,255,255,0.5); }
+/* White outline button on teal */
+.introducing .btn-outline {
+  border-color: rgba(255,255,255,0.7);
+  color: white;
+  animation: intro-btn-pulse 3.2s ease-in-out infinite;
+}
+.introducing .btn-outline:hover { background: white; color: var(--teal); border-color: white; }
+@keyframes intro-btn-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.28); }
+  50%       { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+}
+/* Rotating testimonials */
+.intro-testi { margin-top: 52px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.12); }
+.intro-testi-track { display: grid; }
+.intro-testi-slide { grid-area: 1/1; opacity: 0; visibility: hidden; transition: opacity 0.65s ease, visibility 0.65s; }
+.intro-testi-slide.active { opacity: 1; visibility: visible; }
+.intro-testi-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: rgba(255,255,255,0.88); line-height: 1.7; margin-bottom: 10px; }
+.intro-testi-attr { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime); }
+.intro-testi-dots { display: flex; gap: 7px; justify-content: center; margin-top: 18px; }
+.intro-testi-dots span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.22); transition: background 0.3s; cursor: pointer; }
+.intro-testi-dots span.active { background: var(--lime); }
 
 /* ── OFFER OVERVIEW ── */
 .offer-overview { background: var(--white); padding: 96px 48px; border-top: 1px solid var(--cream); }
@@ -539,6 +589,26 @@ footer a { color: rgba(255,255,255,0.48); }
     <p class="introducing-body">For health and nutrition practitioners who are ready for a website that actually brings clients in the door &ndash; without spending months or thousands to get there.</p>
     <p class="intro-tier-line">Two Options Available Based On Your Goals</p>
     <a href="#pricing" class="btn-outline">See Pricing &amp; Packages &darr;</a>
+    <!-- ROTATING TESTIMONIALS — replace placeholder copy with real quotes -->
+    <div class="intro-testi">
+      <div class="intro-testi-track">
+        <div class="intro-testi-slide active">
+          <p class="intro-testi-quote">&ldquo;[Testimonial one — a short, punchy quote from a happy client about the result they got.]&rdquo;</p>
+          <span class="intro-testi-attr">&mdash; First Name L., Registered Dietitian</span>
+        </div>
+        <div class="intro-testi-slide">
+          <p class="intro-testi-quote">&ldquo;[Testimonial two — focus on the experience: easy process, done for them, stress-free.]&rdquo;</p>
+          <span class="intro-testi-attr">&mdash; First Name L., Health Coach</span>
+        </div>
+        <div class="intro-testi-slide">
+          <p class="intro-testi-quote">&ldquo;[Testimonial three — focus on the outcome: more clients, professional presence, confidence.]&rdquo;</p>
+          <span class="intro-testi-attr">&mdash; First Name L., Nutrition Therapist</span>
+        </div>
+      </div>
+      <div class="intro-testi-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1027,6 +1097,36 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
     if (!isOpen) { a.classList.add('open'); q.classList.add('open'); }
   });
 });
+
+// Introducing section: scroll parallax on inner content
+(function() {
+  var section = document.querySelector('.introducing');
+  var inner   = document.querySelector('.introducing-inner');
+  if (!section || !inner) return;
+  function tick() {
+    var mid = section.getBoundingClientRect().top + section.offsetHeight * 0.5 - window.innerHeight * 0.5;
+    inner.style.translate = '0 ' + (mid * 0.04) + 'px';
+  }
+  window.addEventListener('scroll', tick, {passive: true});
+  tick();
+})();
+
+// Rotating intro testimonials
+(function() {
+  var slides = document.querySelectorAll('.intro-testi-slide');
+  var dots   = document.querySelectorAll('.intro-testi-dots span');
+  if (!slides.length) return;
+  var idx = 0;
+  function goTo(n) {
+    slides[idx].classList.remove('active');
+    dots[idx].classList.remove('active');
+    idx = n;
+    slides[idx].classList.add('active');
+    dots[idx].classList.add('active');
+  }
+  dots.forEach(function(d, i) { d.addEventListener('click', function() { goTo(i); }); });
+  setInterval(function() { goTo((idx + 1) % slides.length); }, 4500);
+})();
 
 // Mockup scene scroll parallax — each layer moves at a different rate for depth
 // CSS translate stacks on top of CSS transform (transform: translateX(-50%) on scores stays intact)
