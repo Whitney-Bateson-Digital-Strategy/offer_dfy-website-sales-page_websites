@@ -218,22 +218,26 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .process-header { text-align: center; margin-bottom: 56px; }
 .process h2 { font-size: clamp(28px, 3vw, 42px); margin-bottom: 10px; color: var(--text); }
 .process-sub { color: #999; font-size: 16px; }
-.process-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
-.proc-card { background: var(--white); border: 1.5px solid var(--cream); border-radius: 20px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.process-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.proc-card { background: var(--white); border: 1.5px solid var(--cream); border-radius: 20px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
 .proc-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,0.09); }
-.proc-card-top { padding: 32px 28px 18px; }
-.proc-step-num { font-family: 'Playfair Display', serif; font-size: 80px; font-weight: 500; line-height: 0.85; margin-bottom: 16px; display: block; }
+.proc-card-top { padding: 32px 26px 16px; }
+.proc-step-num { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 500; line-height: 0.85; margin-bottom: 16px; display: block; }
 .proc-card:nth-child(1) .proc-step-num { color: var(--coral); }
 .proc-card:nth-child(2) .proc-step-num { color: var(--teal); }
 .proc-card:nth-child(3) .proc-step-num { color: var(--peach); }
+.proc-card:nth-child(4) .proc-step-num { color: var(--coral); }
 .proc-week { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 16px; }
 .proc-card:nth-child(1) .proc-week { background: rgba(255,127,80,0.12); color: var(--coral); }
 .proc-card:nth-child(2) .proc-week { background: rgba(2,82,93,0.10); color: var(--teal); }
-.proc-card:nth-child(3) .proc-week { background: var(--lime); color: var(--teal); }
-.proc-card h3 { font-size: clamp(17px, 2vw, 21px); color: var(--text); line-height: 1.3; }
-.proc-card-body { padding: 14px 28px 32px; }
+.proc-card:nth-child(3) .proc-week { background: rgba(253,173,143,0.22); color: #c8623f; }
+.proc-card:nth-child(4) .proc-week { background: var(--lime); color: var(--teal); }
+.proc-card h3 { font-size: clamp(16px, 1.6vw, 19px); color: var(--text); line-height: 1.3; }
+.proc-card-body { padding: 14px 26px 30px; flex: 1; }
 .proc-card-body p { font-size: 14.5px; color: #666; line-height: 1.72; margin-bottom: 10px; }
 .proc-card-body p:last-child { margin-bottom: 0; }
+.process-closing { max-width: 820px; margin: 48px auto 0; background: var(--cream); border-radius: 16px; padding: 28px 36px; font-size: 15.5px; color: #555; line-height: 1.75; text-align: center; }
+.process-closing strong { color: var(--teal); }
 
 /* ── ABOUT ── */
 .about { background: var(--cream); padding: 96px 48px; }
@@ -416,6 +420,7 @@ footer a { color: rgba(255,255,255,0.48); }
   .about-inner { grid-template-columns: 1fr; }
   .about-photo { display: none; }
   .gs-steps { grid-template-columns: 1fr 1fr; }
+  .process-cards { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
   nav { padding: 14px 24px; }
@@ -674,32 +679,44 @@ footer a { color: rgba(255,255,255,0.48); }
           <h3>You tell us about your business</h3>
         </div>
         <div class="proc-card-body">
-          <p>You fill out our onboarding questionnaire covering your services, clients, story, and goals. Just talk about yourself as you normally would – no marketing polish required (that's our job!).</p>
-          <p>If you have branding, send it over. If not, you choose from our curated palettes and we build something cohesive. After this, you go back to seeing clients.</p>
+          <p>You complete your onboarding through our client dashboard &ndash; telling us about your services, clients, story, and goals. Just talk about yourself as you normally would, no marketing polish required (that&rsquo;s our job).</p>
+          <p>If you have branding, send it over; if not, you&rsquo;ll choose from our curated brand kits that we&rsquo;ll apply to your chosen template. Then you go back to seeing clients &ndash; we&rsquo;ve got it from here.</p>
         </div>
       </div>
       <div class="proc-card">
         <div class="proc-card-top">
           <span class="proc-step-num">02</span>
           <div class="proc-week">Week 2</div>
-          <h3>We write, design, and build</h3>
+          <h3>We build, you preview</h3>
         </div>
         <div class="proc-card-body">
-          <p>We take everything you gave us and get to work: writing your copy, sourcing photos, customizing the design, and building every page. You won&rsquo;t hear much from us.</p>
-          <p><em style="color:#aaa;">That&rsquo;s intentional. This is the week the magic happens.</em></p>
+          <p>We take everything you gave us and get to work &ndash; writing content for every page, sourcing photos, and building out your site. By the end of the week, you&rsquo;ll see a homepage preview to react to: does the tone and feel match what you had in mind?</p>
+          <p>Tell us what you think, and we&rsquo;ll work those changes in as we keep writing and building.</p>
         </div>
       </div>
       <div class="proc-card">
         <div class="proc-card-top">
           <span class="proc-step-num">03</span>
           <div class="proc-week">Week 3</div>
-          <h3>You review, we refine, it goes live</h3>
+          <h3>The big reveal!</h3>
         </div>
         <div class="proc-card-body">
-          <p>We share a staging link and you give us your feedback. We handle the revisions and launch your site.</p>
-          <p>From here, your monthly maintenance and support plan keeps everything running, secure, and up to date &ndash; without you ever having to log in.</p>
+          <p>The best week in the whole project &ndash; seeing your brand new website! You&rsquo;ll get your complete site and a walkthrough video showing you around. Your only job is to look everything over and note anything you&rsquo;d like us to adjust before we go live.</p>
         </div>
       </div>
+      <div class="proc-card">
+        <div class="proc-card-top">
+          <span class="proc-step-num">04</span>
+          <div class="proc-week">Week 4</div>
+          <h3>Final revisions, then we launch</h3>
+        </div>
+        <div class="proc-card-body">
+          <p>Send us your revisions at the start of the week and we&rsquo;ll get to work implementing them. Once everything&rsquo;s addressed, we&rsquo;ll confirm with you and flip the switch &ndash; your site goes live by week&rsquo;s end!</p>
+        </div>
+      </div>
+    </div>
+    <div class="process-closing">
+      Even after launch, you&rsquo;ve got <strong>7 more days of us on standby</strong> for any last tweaks &ndash; included at no extra charge. After that, your monthly maintenance and support plan takes over: need to change some wording, a fresh photo, or a blog post added? Just send us a message. No logging in, no hunting for the right button. We handle it &ndash; plus hosting, code updates, and security monitoring so your investment stays fast, secure, and working for your business.
     </div>
   </div>
 </section>
