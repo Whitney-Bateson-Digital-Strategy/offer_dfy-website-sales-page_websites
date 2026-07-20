@@ -238,8 +238,11 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 /* ── ABOUT ── */
 .about { background: var(--cream); padding: 96px 48px; }
 .about-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: stretch; }
-.about-photo { border-radius: 20px; overflow: hidden; box-shadow: 16px 16px 60px rgba(0,0,0,0.12); }
+.about-photo { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 16px 16px 60px rgba(0,0,0,0.12); }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; }
+.about-photo-badge { position: absolute; left: 20px; bottom: 20px; background: rgba(255,255,255,0.96); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 10px; padding: 12px 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); max-width: calc(100% - 40px); }
+.about-photo-badge .badge-name { font-family: 'Playfair Display', serif; color: var(--teal); font-size: 17px; font-weight: 500; line-height: 1.2; }
+.about-photo-badge .badge-tag { font-family: 'Nunito Sans', sans-serif; color: #666; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; margin-top: 3px; }
 .about-text .section-label { margin-bottom: 16px; }
 .about-text h2 { font-size: clamp(24px, 2.8vw, 36px); color: var(--teal); margin-bottom: 22px; line-height: 1.3; }
 .about-text p { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 18px; }
@@ -449,7 +452,7 @@ footer a { color: rgba(255,255,255,0.48); }
 <!-- NAV (no anchor links) -->
 <nav>
   <a class="nav-logo" href="#top"><img src="images/primary-navy.png" alt="Whitney Bateson Digital Strategy"></a>
-  <a class="nav-cta" href="https://whitneybateson.as.me/discoverycall">Book a Free Call</a>
+  <a class="nav-cta" href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener">Book a Free Call</a>
 </nav>
 
 <!-- HERO (split layout) -->
@@ -459,7 +462,7 @@ footer a { color: rgba(255,255,255,0.48); }
       <div class="hero-pill">Done-For-You Website &bull; Health &amp; Nutrition Practitioners</div>
       <h1>Your complete practice website &ndash; <em>written, designed, and launched</em> for you.</h1>
       <p class="hero-sub">Imagine having an expert-created website – built to bring you more right-fit clients and grow your nutrition, therapy, or health practice – launched in 3 weeks, stress-free.</p>
-      <a href="https://whitneybateson.as.me/discoverycall" class="btn-primary">Book a Free Call to Get Started &rarr;</a>
+      <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book a Free Call to Get Started &rarr;</a>
     </div>
     <div class="hero-photo-wrap">
       <div class="hero-photo-shadow">
@@ -484,7 +487,7 @@ footer a { color: rgba(255,255,255,0.48); }
     <div class="hero-pill">Done-For-You Website &bull; Health &amp; Nutrition Practitioners</div>
     <h1>Your complete practice website &ndash;<br><em>written, designed, and launched</em> for you.</h1>
     <p class="hero-video-sub">Imagine having an expert-created website &ndash; built to bring you more right-fit clients and grow your nutrition, therapy, or health practice &ndash; launched in 3 weeks, stress-free.</p>
-    <a href="https://whitneybateson.as.me/discoverycall" class="btn-primary">Book a Free Call to Get Started &rarr;</a>
+    <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book a Free Call to Get Started &rarr;</a>
   </div>
 </div>
 <!-- ═══════════════════════════════════════════════════════════════════ -->
@@ -649,7 +652,7 @@ footer a { color: rgba(255,255,255,0.48); }
           <li><div class="check-icon">&#10003;</div><span>Scheduler embed, contact form, email list connection</span></li>
           <li><div class="check-icon">&#10003;</div><span>Google Analytics + Search Console setup</span></li>
         </ul>
-        <a href="https://whitneybateson.as.me/discoverycall" class="btn-outline" style="margin-top:28px;display:inline-block;">See pricing &amp; book a call &rarr;</a>
+        <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-outline" style="margin-top:28px;display:inline-block;">See pricing &amp; book a call &rarr;</a>
       </div>
     </div>
   </div>
@@ -706,6 +709,10 @@ footer a { color: rgba(255,255,255,0.48); }
   <div class="about-inner">
     <div class="about-photo">
       <img src="images/whitney-about.jpg" alt="Whitney Bateson" loading="lazy">
+      <div class="about-photo-badge">
+        <div class="badge-name">Whitney Bateson, MPH&ndash;RD</div>
+        <div class="badge-tag">Dietitian turned marketer</div>
+      </div>
     </div>
     <div class="about-text">
       <div class="section-label">Why I Built This</div>
@@ -804,14 +811,14 @@ footer a { color: rgba(255,255,255,0.48); }
           <p>Most website projects stop at &ldquo;looks good.&rdquo; The System package is what turns your website into a marketing system. Your complete lead generation funnel is built, connected, and ready to collect leads and warm them up to book from day one.</p>
         </div>
         <div class="price-maint">
-          <p><strong>After launch:</strong> Monthly maintenance plans from $55/mo &ndash; hosting, software updates, security, and content updates handled for you.</p>
+          <p><strong>After launch:</strong> Monthly maintenance plans from $65/mo &ndash; hosting, software updates, security, with content updates and blog uploads handled for you.</p>
         </div>
       </div>
 
     </div>
 
     <div class="pricing-below">
-      <a href="https://whitneybateson.as.me/discoverycall" class="btn-primary">Book a Call to Get Started &rarr;</a>
+      <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book a Call to Get Started &rarr;</a>
     </div>
   </div>
 </section>
@@ -858,7 +865,7 @@ footer a { color: rgba(255,255,255,0.48); }
       </div>
     </div>
     <p class="vs-not-sure">Not sure which package is right for you? That&rsquo;s exactly what the discovery call is for.</p>
-    <a href="https://whitneybateson.as.me/discoverycall" class="btn-primary">Book a Free Call &rarr;</a>
+    <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book a Free Call &rarr;</a>
   </div>
 </section>
 
@@ -988,7 +995,7 @@ footer a { color: rgba(255,255,255,0.48); }
       </div>
     </div>
     <div class="testi-cta">
-      <a href="https://whitneybateson.as.me/discoverycall" class="btn-primary">Book a free call &rarr;</a>
+      <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book a free call &rarr;</a>
     </div>
   </div>
 </section>
@@ -1084,7 +1091,7 @@ footer a { color: rgba(255,255,255,0.48); }
   <div class="final-cta-inner">
     <h2>Ready to stop<br><em id="cta-cycle">putting it off?</em></h2>
     <p>Your website should be working for you &ndash; bringing in new clients, showing up in search, and telling your story clearly. Not sitting half-finished on your to-do list. Book a free 30-minute call and we&rsquo;ll figure out which option makes sense for you.</p>
-    <a href="https://whitneybateson.as.me/discoverycall" class="btn-primary">Book Your Free Call &rarr;</a>
+    <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book Your Free Call &rarr;</a>
     <p class="fine-print">Have a question first? Email us at <a href="mailto:info@whitneybateson.com">info@whitneybateson.com</a></p>
   </div>
 </section>
@@ -1093,8 +1100,8 @@ footer a { color: rgba(255,255,255,0.48); }
 <footer>
   <p>&copy; 2026 Whitney Bateson Digital Strategy</p>
   <div class="footer-links">
-    <a href="https://whitneybateson.com/privacy">Privacy Policy</a>
-    <a href="https://whitneybateson.com/terms">Terms of Use</a>
+    <a href="https://whitneybateson.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="https://whitneybateson.com/terms" target="_blank" rel="noopener">Terms of Use</a>
   </div>
 </footer>
 
