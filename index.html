@@ -45,14 +45,15 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; line-heig
 
 /* ── NAV ── */
 nav { background: var(--white); padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.07); }
-.nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--teal); text-decoration: none; font-style: italic; }
-.nav-cta { background: var(--coral); color: white; border: none; padding: 10px 22px; border-radius: 50px; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
+.nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+.nav-logo img { height: 40px; width: auto; display: block; }
+.nav-cta { background: var(--coral); color: white; border: 2px solid var(--coral); padding: 10px 24px; border-radius: 8px; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,127,80,0.35); }
 
-/* ── BUTTONS (reduced padding) ── */
-.btn-primary { display: inline-block; background: var(--coral); color: white; padding: 13px 30px; border-radius: 50px; font-family: 'Nunito Sans', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; border: none; transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
+/* ── BUTTONS (unified sizing; only fill/outline differs) ── */
+.btn-primary { display: inline-block; background: var(--coral); color: white; padding: 10px 24px; border-radius: 8px; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; cursor: pointer; border: 2px solid var(--coral); transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,127,80,0.4); }
-.btn-outline { display: inline-block; border: 2px solid var(--coral); color: var(--coral); padding: 11px 24px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; background: transparent; font-family: 'Nunito Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.06em; }
+.btn-outline { display: inline-block; border: 2px solid var(--coral); color: var(--coral); padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; background: transparent; font-family: 'Nunito Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.06em; }
 .btn-outline:hover { background: var(--coral); color: white; }
 .section-label { font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; color: var(--coral); margin-bottom: 14px; }
 
@@ -217,28 +218,35 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .process-header { text-align: center; margin-bottom: 56px; }
 .process h2 { font-size: clamp(28px, 3vw, 42px); margin-bottom: 10px; color: var(--text); }
 .process-sub { color: #999; font-size: 16px; }
-.process-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
-.proc-card { background: var(--white); border: 1.5px solid var(--cream); border-radius: 20px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.process-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.proc-card { background: var(--white); border: 1.5px solid var(--cream); border-radius: 20px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
 .proc-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,0.09); }
-.proc-card-top { padding: 32px 28px 18px; }
-.proc-step-num { font-family: 'Playfair Display', serif; font-size: 80px; font-weight: 500; line-height: 0.85; margin-bottom: 16px; display: block; }
+.proc-card-top { padding: 32px 26px 16px; }
+.proc-step-num { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 500; line-height: 0.85; margin-bottom: 16px; display: block; }
 .proc-card:nth-child(1) .proc-step-num { color: var(--coral); }
 .proc-card:nth-child(2) .proc-step-num { color: var(--teal); }
 .proc-card:nth-child(3) .proc-step-num { color: var(--peach); }
+.proc-card:nth-child(4) .proc-step-num { color: var(--coral); }
 .proc-week { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 16px; }
 .proc-card:nth-child(1) .proc-week { background: rgba(255,127,80,0.12); color: var(--coral); }
 .proc-card:nth-child(2) .proc-week { background: rgba(2,82,93,0.10); color: var(--teal); }
-.proc-card:nth-child(3) .proc-week { background: var(--lime); color: var(--teal); }
-.proc-card h3 { font-size: clamp(17px, 2vw, 21px); color: var(--text); line-height: 1.3; }
-.proc-card-body { padding: 14px 28px 32px; }
+.proc-card:nth-child(3) .proc-week { background: rgba(253,173,143,0.22); color: #c8623f; }
+.proc-card:nth-child(4) .proc-week { background: var(--lime); color: var(--teal); }
+.proc-card h3 { font-size: clamp(16px, 1.6vw, 19px); color: var(--text); line-height: 1.3; }
+.proc-card-body { padding: 14px 26px 30px; flex: 1; }
 .proc-card-body p { font-size: 14.5px; color: #666; line-height: 1.72; margin-bottom: 10px; }
 .proc-card-body p:last-child { margin-bottom: 0; }
+.process-closing { max-width: 780px; margin: 44px auto 0; padding: 8px 16px; font-size: 15.5px; color: #666; line-height: 1.75; text-align: center; }
+.process-closing strong { color: var(--teal); }
 
 /* ── ABOUT ── */
 .about { background: var(--cream); padding: 96px 48px; }
 .about-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: stretch; }
-.about-photo { border-radius: 20px; overflow: hidden; box-shadow: 16px 16px 60px rgba(0,0,0,0.12); }
-.about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; }
+.about-photo { position: relative; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; border-radius: 20px; box-shadow: 16px 16px 60px rgba(0,0,0,0.12); }
+.about-photo-badge { position: absolute; left: -28px; bottom: 32px; background: #ffffff; border-radius: 10px; padding: 14px 20px; box-shadow: 0 18px 40px rgba(0,0,0,0.18), 0 4px 10px rgba(0,0,0,0.08); }
+.about-photo-badge .badge-name { font-family: 'Playfair Display', serif; color: var(--teal); font-size: 18px; font-weight: 500; line-height: 1.2; white-space: nowrap; }
+.about-photo-badge .badge-tag { font-family: 'Nunito Sans', sans-serif; color: var(--text); font-size: 11px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-top: 6px; }
 .about-text .section-label { margin-bottom: 16px; }
 .about-text h2 { font-size: clamp(24px, 2.8vw, 36px); color: var(--teal); margin-bottom: 22px; line-height: 1.3; }
 .about-text p { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 18px; }
@@ -257,7 +265,7 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .vs-items { list-style: none; border: 1.5px solid var(--cream); border-radius: 16px; overflow: hidden; background: white; }
 .vs-items li { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 24px; font-size: 15px; border-bottom: 1px solid var(--cream); gap: 24px; }
 .vs-items li:last-child { border-bottom: none; }
-.vs-items li.vs-total { background: var(--light); }
+.vs-items li.vs-total { background: var(--cream); border-top: 1.5px solid #e2ddd4; }
 .vs-label { color: #555; flex: 1; }
 .vs-label em { font-size: 13px; color: #aaa; font-style: normal; }
 .vs-price { color: #aaa; font-size: 14px; white-space: nowrap; flex-shrink: 0; }
@@ -377,7 +385,7 @@ nav { background: var(--white); padding: 16px 48px; display: flex; align-items: 
 .faq { background: var(--white); padding: 96px 48px; border-top: 1px solid var(--cream); }
 .faq-inner { max-width: 1060px; margin: 0 auto; }
 .faq h2 { font-size: clamp(28px, 3vw, 42px); text-align: center; margin-bottom: 52px; }
-.faq-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+.faq-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; align-items: start; }
 .faq-item { background: var(--light); border-radius: 14px; overflow: hidden; }
 .faq-q { padding: 20px 24px; font-weight: 600; font-size: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; gap: 14px; line-height: 1.4; }
 .faq-q::after { content: '+'; font-size: 20px; color: var(--teal); transition: transform 0.2s; flex-shrink: 0; }
@@ -412,6 +420,7 @@ footer a { color: rgba(255,255,255,0.48); }
   .about-inner { grid-template-columns: 1fr; }
   .about-photo { display: none; }
   .gs-steps { grid-template-columns: 1fr 1fr; }
+  .process-cards { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
   nav { padding: 14px 24px; }
@@ -439,27 +448,26 @@ footer a { color: rgba(255,255,255,0.48); }
 <body>
 
 <!-- ANNOUNCEMENT BAR (static) -->
-<div class="announce-bar">
+<div class="announce-bar" id="top">
   New Service for Nutrition &amp; Health Practitioners
   <span class="announce-dot">&#9679;</span>
   Limited Spots Available &ndash; Now Booking for July 2026
 </div>
 
 <!-- NAV (no anchor links) -->
-<!-- Replace "Whitney Bateson" text with <img> tag once you have the logo URL -->
 <nav>
-  <a class="nav-logo" href="#top">Whitney Bateson</a>
-  <a class="nav-cta" href="[BOOKING LINK]">Book a Free Call</a>
+  <a class="nav-logo" href="#top"><img src="images/primary-navy.png" alt="Whitney Bateson Digital Strategy"></a>
+  <a class="nav-cta" href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener">Book a Free Call</a>
 </nav>
 
 <!-- HERO (split layout) -->
-<div class="hero-wrap" id="top" style="display:none;">
+<div class="hero-wrap" style="display:none;">
   <div class="hero">
     <div class="hero-text">
       <div class="hero-pill">Done-For-You Website &bull; Health &amp; Nutrition Practitioners</div>
       <h1>Your complete practice website &ndash; <em>written, designed, and launched</em> for you.</h1>
       <p class="hero-sub">Imagine having an expert-created website – built to bring you more right-fit clients and grow your nutrition, therapy, or health practice – launched in 3 weeks, stress-free.</p>
-      <a href="[BOOKING LINK]" class="btn-primary">Book a Free Call to Get Started &rarr;</a>
+      <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book a Free Call to Get Started &rarr;</a>
     </div>
     <div class="hero-photo-wrap">
       <div class="hero-photo-shadow">
@@ -484,7 +492,7 @@ footer a { color: rgba(255,255,255,0.48); }
     <div class="hero-pill">Done-For-You Website &bull; Health &amp; Nutrition Practitioners</div>
     <h1>Your complete practice website &ndash;<br><em>written, designed, and launched</em> for you.</h1>
     <p class="hero-video-sub">Imagine having an expert-created website &ndash; built to bring you more right-fit clients and grow your nutrition, therapy, or health practice &ndash; launched in 3 weeks, stress-free.</p>
-    <a href="[BOOKING LINK]" class="btn-primary" style="padding:16px 40px;font-size:16px;">Book a Free Call to Get Started &rarr;</a>
+    <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book a Free Call to Get Started &rarr;</a>
   </div>
 </div>
 <!-- ═══════════════════════════════════════════════════════════════════ -->
@@ -649,7 +657,7 @@ footer a { color: rgba(255,255,255,0.48); }
           <li><div class="check-icon">&#10003;</div><span>Scheduler embed, contact form, email list connection</span></li>
           <li><div class="check-icon">&#10003;</div><span>Google Analytics + Search Console setup</span></li>
         </ul>
-        <a href="[BOOKING LINK]" class="btn-outline" style="margin-top:28px;display:inline-block;">See pricing &amp; book a call &rarr;</a>
+        <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-outline" style="margin-top:28px;display:inline-block;">See pricing &amp; book a call &rarr;</a>
       </div>
     </div>
   </div>
@@ -671,32 +679,44 @@ footer a { color: rgba(255,255,255,0.48); }
           <h3>You tell us about your business</h3>
         </div>
         <div class="proc-card-body">
-          <p>You fill out our onboarding questionnaire covering your services, clients, story, and goals. Just talk about yourself as you normally would – no marketing polish required (that's our job!).</p>
-          <p>If you have branding, send it over. If not, you choose from our curated palettes and we build something cohesive. After this, you go back to seeing clients.</p>
+          <p>You complete your onboarding through our client dashboard &ndash; telling us about your services, clients, story, and goals. Just talk about yourself as you normally would, no marketing polish required (that&rsquo;s our job).</p>
+          <p>Then you go back to seeing clients &ndash; we&rsquo;ve got it from here.</p>
         </div>
       </div>
       <div class="proc-card">
         <div class="proc-card-top">
           <span class="proc-step-num">02</span>
           <div class="proc-week">Week 2</div>
-          <h3>We write, design, and build</h3>
+          <h3>We build, you preview</h3>
         </div>
         <div class="proc-card-body">
-          <p>We take everything you gave us and get to work: writing your copy, sourcing photos, customizing the design, and building every page. You won&rsquo;t hear much from us.</p>
-          <p><em style="color:#aaa;">That&rsquo;s intentional. This is the week the magic happens.</em></p>
+          <p>We take everything you gave us and get to work &ndash; writing content for every page, sourcing photos, and building out your site. By the end of the week, you&rsquo;ll see a homepage preview to react to: does the tone and feel match what you had in mind?</p>
+          <p>Tell us what you think, and we&rsquo;ll work those changes in as we keep writing and building.</p>
         </div>
       </div>
       <div class="proc-card">
         <div class="proc-card-top">
           <span class="proc-step-num">03</span>
           <div class="proc-week">Week 3</div>
-          <h3>You review, we refine, it goes live</h3>
+          <h3>The big reveal!</h3>
         </div>
         <div class="proc-card-body">
-          <p>We share a staging link and you give us your feedback. We handle the revisions and launch your site.</p>
-          <p>From here, your monthly maintenance and support plan keeps everything running, secure, and up to date &ndash; without you ever having to log in.</p>
+          <p>The best week in the whole project &ndash; seeing your brand new website! You&rsquo;ll get your complete site and a walkthrough video showing you around. Your only job is to look everything over and note anything you&rsquo;d like us to adjust before we go live.</p>
         </div>
       </div>
+      <div class="proc-card">
+        <div class="proc-card-top">
+          <span class="proc-step-num">04</span>
+          <div class="proc-week">Week 4</div>
+          <h3>Final revisions, then we launch</h3>
+        </div>
+        <div class="proc-card-body">
+          <p>Send us your revisions at the start of the week and we&rsquo;ll get to work implementing them. Once everything&rsquo;s addressed, we&rsquo;ll confirm with you and flip the switch &ndash; your site goes live by week&rsquo;s end!</p>
+        </div>
+      </div>
+    </div>
+    <div class="process-closing">
+      Even after launch, you&rsquo;ve got <strong>7 more days of us on standby</strong> for any last tweaks &ndash; included at no extra charge. After that, your monthly maintenance and support plan takes over: need to change some wording, a fresh photo, or a blog post added? Just send us a message. No logging in, no hunting for the right button. We handle it &ndash; plus hosting, code updates, and security monitoring so your investment stays fast, secure, and working for your business.
     </div>
   </div>
 </section>
@@ -706,14 +726,18 @@ footer a { color: rgba(255,255,255,0.48); }
   <div class="about-inner">
     <div class="about-photo">
       <img src="images/whitney-about.jpg" alt="Whitney Bateson" loading="lazy">
+      <div class="about-photo-badge">
+        <div class="badge-name">Whitney Bateson, MPH&ndash;RD</div>
+        <div class="badge-tag">Dietitian turned marketer</div>
+      </div>
     </div>
     <div class="about-text">
       <div class="section-label">Why I Built This</div>
       <h2>I&rsquo;ve spent 8 years helping practitioners get their websites done. Here&rsquo;s what I kept seeing.</h2>
       <p>After working with 150+ health and nutrition practitioners through my done-with-you website program &ndash; and before that, building custom sites &ndash; two things became clear.</p>
-      <p>First: the copy was always the bottleneck. Practitioners knew exactly how to help their clients &ndash; but sitting down to write about themselves? That&rsquo;s where everything stalled. They&rsquo;d start, get stuck, and the website would sit unfinished for far too long.</p>
-      <p>Second: the tools have changed. We no longer need to wrestle with clunky page builders or wait months for a custom build. Done right, a polished, professional website can come together in weeks &ndash; not as a compromise or placeholder, but as a genuinely better product.</p>
-      <p>So I built this service for the practitioner who needs their website done &ndash; not someday, but now. Dietitians, therapists, and health experts who need a website that builds their authority, without breaking the bank. Someone who wants to hand it off completely, stay out of the backend, and focus on what they&rsquo;re actually great at.</p>
+      <p><strong>First: the copy was always the bottleneck.</strong> Practitioners knew exactly how to help their clients &ndash; but sitting down to write about themselves? That&rsquo;s where everything stalled. They&rsquo;d start, get stuck, and the website would sit unfinished for far too long.</p>
+      <p><strong>Second: the tools have changed.</strong> We no longer need to wrestle with clunky page builders or wait months for a custom build. Done right, a polished, professional website can come together in weeks &ndash; not as a compromise or placeholder, but as a genuinely better product.</p>
+      <p><strong>So I built this service for the clinician who needs their website done &ndash; not someday, but now.</strong> Dietitians, therapists, and health experts who need a website that builds their authority, without breaking the bank. Someone who wants to hand it off completely, stay out of the backend, and focus on what they&rsquo;re actually great at.</p>
       <p><em>You bring your subject matter expertise. We bring it to life online.</em></p>
       <div class="about-stats">
         <div>
@@ -804,14 +828,14 @@ footer a { color: rgba(255,255,255,0.48); }
           <p>Most website projects stop at &ldquo;looks good.&rdquo; The System package is what turns your website into a marketing system. Your complete lead generation funnel is built, connected, and ready to collect leads and warm them up to book from day one.</p>
         </div>
         <div class="price-maint">
-          <p><strong>After launch:</strong> Monthly maintenance plans from $55/mo &ndash; hosting, software updates, security, and content updates handled for you.</p>
+          <p><strong>After launch:</strong> Monthly maintenance plans from $65/mo &ndash; hosting, software updates, security, with content updates and blog uploads handled for you.</p>
         </div>
       </div>
 
     </div>
 
     <div class="pricing-below">
-      <a href="[BOOKING LINK]" class="btn-primary">Book a Call to Get Started &rarr;</a>
+      <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book a Call to Get Started &rarr;</a>
     </div>
   </div>
 </section>
@@ -858,7 +882,7 @@ footer a { color: rgba(255,255,255,0.48); }
       </div>
     </div>
     <p class="vs-not-sure">Not sure which package is right for you? That&rsquo;s exactly what the discovery call is for.</p>
-    <a href="[BOOKING LINK]" class="btn-primary">Book a Free Call &rarr;</a>
+    <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book a Free Call &rarr;</a>
   </div>
 </section>
 
@@ -921,8 +945,8 @@ footer a { color: rgba(255,255,255,0.48); }
   </div>
 </section>
 
-<!-- COMPARISON -->
-<section class="comparison">
+<!-- COMPARISON (temporarily hidden pending Whitney's edits) -->
+<section class="comparison" style="display:none;">
   <div class="comparison-inner">
     <div class="section-label" style="text-align:center;">Why Us</div>
     <h2>How this compares</h2>
@@ -988,7 +1012,7 @@ footer a { color: rgba(255,255,255,0.48); }
       </div>
     </div>
     <div class="testi-cta">
-      <a href="[BOOKING LINK]" class="btn-primary">Book a free call &rarr;</a>
+      <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book a free call &rarr;</a>
     </div>
   </div>
 </section>
@@ -1084,7 +1108,7 @@ footer a { color: rgba(255,255,255,0.48); }
   <div class="final-cta-inner">
     <h2>Ready to stop<br><em id="cta-cycle">putting it off?</em></h2>
     <p>Your website should be working for you &ndash; bringing in new clients, showing up in search, and telling your story clearly. Not sitting half-finished on your to-do list. Book a free 30-minute call and we&rsquo;ll figure out which option makes sense for you.</p>
-    <a href="[BOOKING LINK]" class="btn-primary" style="padding:16px 44px;font-size:16px;">Book Your Free Call &rarr;</a>
+    <a href="https://whitneybateson.as.me/discoverycall" target="_blank" rel="noopener" class="btn-primary">Book Your Free Call &rarr;</a>
     <p class="fine-print">Have a question first? Email us at <a href="mailto:info@whitneybateson.com">info@whitneybateson.com</a></p>
   </div>
 </section>
@@ -1093,8 +1117,8 @@ footer a { color: rgba(255,255,255,0.48); }
 <footer>
   <p>&copy; 2026 Whitney Bateson Digital Strategy</p>
   <div class="footer-links">
-    <a href="https://whitneybateson.com/privacy">Privacy Policy</a>
-    <a href="https://whitneybateson.com/terms">Terms of Use</a>
+    <a href="https://whitneybateson.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="https://whitneybateson.com/terms" target="_blank" rel="noopener">Terms of Use</a>
   </div>
 </footer>
 
