@@ -47,13 +47,13 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; line-heig
 nav { background: var(--white); padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.07); }
 .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
 .nav-logo img { height: 40px; width: auto; display: block; }
-.nav-cta { background: var(--coral); color: white; border: none; padding: 10px 22px; border-radius: 50px; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
+.nav-cta { background: var(--coral); color: white; border: 2px solid var(--coral); padding: 10px 24px; border-radius: 8px; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,127,80,0.35); }
 
-/* ── BUTTONS (reduced padding) ── */
-.btn-primary { display: inline-block; background: var(--coral); color: white; padding: 13px 30px; border-radius: 50px; font-family: 'Nunito Sans', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; border: none; transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
+/* ── BUTTONS (unified sizing; only fill/outline differs) ── */
+.btn-primary { display: inline-block; background: var(--coral); color: white; padding: 10px 24px; border-radius: 8px; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; cursor: pointer; border: 2px solid var(--coral); transition: transform 0.15s, box-shadow 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,127,80,0.4); }
-.btn-outline { display: inline-block; border: 2px solid var(--coral); color: var(--coral); padding: 11px 24px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; background: transparent; font-family: 'Nunito Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.06em; }
+.btn-outline { display: inline-block; border: 2px solid var(--coral); color: var(--coral); padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; background: transparent; font-family: 'Nunito Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.06em; }
 .btn-outline:hover { background: var(--coral); color: white; }
 .section-label { font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; color: var(--coral); margin-bottom: 14px; }
 
@@ -484,7 +484,7 @@ footer a { color: rgba(255,255,255,0.48); }
     <div class="hero-pill">Done-For-You Website &bull; Health &amp; Nutrition Practitioners</div>
     <h1>Your complete practice website &ndash;<br><em>written, designed, and launched</em> for you.</h1>
     <p class="hero-video-sub">Imagine having an expert-created website &ndash; built to bring you more right-fit clients and grow your nutrition, therapy, or health practice &ndash; launched in 3 weeks, stress-free.</p>
-    <a href="https://whitneybateson.as.me/discoverycall" class="btn-primary" style="padding:16px 40px;font-size:16px;">Book a Free Call to Get Started &rarr;</a>
+    <a href="https://whitneybateson.as.me/discoverycall" class="btn-primary">Book a Free Call to Get Started &rarr;</a>
   </div>
 </div>
 <!-- ═══════════════════════════════════════════════════════════════════ -->
@@ -1084,7 +1084,7 @@ footer a { color: rgba(255,255,255,0.48); }
   <div class="final-cta-inner">
     <h2>Ready to stop<br><em id="cta-cycle">putting it off?</em></h2>
     <p>Your website should be working for you &ndash; bringing in new clients, showing up in search, and telling your story clearly. Not sitting half-finished on your to-do list. Book a free 30-minute call and we&rsquo;ll figure out which option makes sense for you.</p>
-    <a href="https://whitneybateson.as.me/discoverycall" class="btn-primary" style="padding:16px 44px;font-size:16px;">Book Your Free Call &rarr;</a>
+    <a href="https://whitneybateson.as.me/discoverycall" class="btn-primary">Book Your Free Call &rarr;</a>
     <p class="fine-print">Have a question first? Email us at <a href="mailto:info@whitneybateson.com">info@whitneybateson.com</a></p>
   </div>
 </section>
